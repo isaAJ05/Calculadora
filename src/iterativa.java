@@ -35,13 +35,37 @@ public class iterativa extends javax.swing.JFrame {
         return numeros;
     }
 
+    //Funcion para validar 
+    public boolean validacion(String cadena) {
+        if (cadena.length() == 0) {
+            return false; // Manejar caso de cadena vacía
+        }
+
+        char ultimoCaracter = cadena.charAt(cadena.length() - 1);
+
+        if (!Character.isDigit(ultimoCaracter)) {
+            return false; // Manejar caso de carácter no numérico
+        }
+
+        int ultimoValor = Integer.parseInt(String.valueOf(ultimoCaracter));
+
+        for (int i = 0; i < 10; i++) {
+            if (ultimoValor == i) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
     //Funcion suma
     public void suma(double numeros) {
+
         indice += 1;
         acum2 = acum;
         operaciones.setHorizontalAlignment(SwingConstants.RIGHT);
         operaciones.setText(acum = acum + "+");
-        
+
     }
 
     public void resta(double numeros) {
@@ -176,6 +200,11 @@ public class iterativa extends javax.swing.JFrame {
         });
 
         jButton12.setContentAreaFilled(false);
+        jButton12.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton12ActionPerformed(evt);
+            }
+        });
 
         jButton13.setContentAreaFilled(false);
         jButton13.addActionListener(new java.awt.event.ActionListener() {
@@ -528,19 +557,41 @@ public class iterativa extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton9ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-        suma(26.00);
+        if (validacion(acum) == false) {
+
+        } else {
+            suma(26.00);
+        }
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
-        division(20.00);
+        if (validacion(acum) == false) {
+
+        } else {
+            division(20.00);
+        }
     }//GEN-LAST:event_jButton14ActionPerformed
 
     private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
-        multiplicacion(29.2);
+        if (validacion(acum) == false) {
+
+        } else {
+            multiplicacion(29.2);
+        }
     }//GEN-LAST:event_jButton13ActionPerformed
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
-        resta(23.3);    }//GEN-LAST:event_jButton8ActionPerformed
+        if (validacion(acum) == false) {
+
+        } else {
+            resta(23.3);
+        }
+    }//GEN-LAST:event_jButton8ActionPerformed
+
+    private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
+        acum = acum.substring(0, acum.length() - 1);
+        res.setText(acum);
+    }//GEN-LAST:event_jButton12ActionPerformed
 
     /**
      * @param args the command line arguments

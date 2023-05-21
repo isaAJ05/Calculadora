@@ -1,13 +1,13 @@
 
 import javax.swing.SwingConstants;
 
-
 public class iterativa extends javax.swing.JFrame {
 
     //Variables Globales
     //Vector de entradas del usuario (como numeros y comas)
     String acum;
     String acum2;
+    double numeros[] = new double[10000];
     //indice
     int indice = 0;
 
@@ -50,16 +50,24 @@ public class iterativa extends javax.swing.JFrame {
 
         return false;
     }
+    //Subrutina para visualizacion de acumulacion de operaciones
+    public void acumulacion (String operacion){
+        numeros[indice] = Double.parseDouble(acum);
+        operaciones.setHorizontalAlignment(SwingConstants.RIGHT);
+        operaciones.setText(acum2 = acum2 + acum + operacion );
+        acum="";
+        indice += 1;
+    }
 
     //Funcion suma
-    public void suma(double numeros) {
-
-        indice += 1;
-        acum2 = acum;
-        operaciones.setHorizontalAlignment(SwingConstants.RIGHT);
-        operaciones.setText(acum = acum + "+");
-
+    public String suma() {
+    double suma = 0;
+    for (int i = 0; i <= indice; i++) {
+        suma += numeros[i];
     }
+    return Double.toString(suma);
+}
+
 
     public void resta(double numeros) {
         indice += 1;
@@ -95,7 +103,6 @@ public class iterativa extends javax.swing.JFrame {
         acum2 = "";
     }
 
-  
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -549,7 +556,8 @@ public class iterativa extends javax.swing.JFrame {
         if (validacion(acum) == false) {
 
         } else {
-            suma(26.00);
+            acumulacion("+");
+            res.setText(suma());
         }
     }//GEN-LAST:event_jButton7ActionPerformed
 

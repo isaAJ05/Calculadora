@@ -308,6 +308,11 @@ public class iterativa extends javax.swing.JFrame {
 
         // Eliminar los espacios en blanco de la expresión
         expresion = expresion.replaceAll("\\s", "");
+        // Validar si el primer elemento es "-"
+    if (expresion.substring(0, 1).equals("-")) {
+    expresion = "0" + expresion;
+}
+
 
         // Buscar el operador de mayor precedencia
         int index = encontrarOperadorPrecedente(expresion);
@@ -320,7 +325,7 @@ public class iterativa extends javax.swing.JFrame {
         // Evaluar las subexpresiones izquierda y derecha de acuerdo al operador encontrado
         double izquierda = evaluarExpresion(expresion.substring(0, index));
         double derecha = evaluarExpresion(expresion.substring(index + 1));
-
+        
         // Realizar la operación correspondiente
         switch (expresion.charAt(index)) {
             case '+':

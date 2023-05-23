@@ -12,6 +12,63 @@ public class recursiva2 extends javax.swing.JFrame {
     //indice
     int indice = 0;
     
+     //Subrutina para que aparezca el numero en el label de resultado
+    public void aparecer(String caracter) {
+        res.setHorizontalAlignment(SwingConstants.RIGHT);
+        acum = acum + caracter;
+        res.setText(acum);
+    }
+
+    //Funcion para convertir vector de caracteres en numeros
+    public double[] convertirNumeros(String[] caracteres) {
+        double[] numeros = new double[indice];
+
+        for (int i = 0; i < indice; i++) {
+            numeros[i] = Double.parseDouble(caracteres[i]);
+        }
+        return numeros;
+    }
+
+    //Funcion para validar 
+    public boolean validacion(String cadena) {
+        if (cadena.length() == 0) {
+            return false; // Manejar caso de cadena vacía
+        }
+
+        char ultimoCaracter = cadena.charAt(cadena.length() - 1);
+
+        if (!Character.isDigit(ultimoCaracter)) {
+            return false; // Manejar caso de carácter no numérico
+        }
+
+        int ultimoValor = Integer.parseInt(String.valueOf(ultimoCaracter));
+
+        for (int i = 0; i < 10; i++) {
+            if (ultimoValor == i) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+    //Subrutina para visualizacion de acumulacion de operaciones
+    public void acumulacion (String operacion){
+        numeros[indice] = Double.parseDouble(acum);
+        //operaciones.setHorizontalAlignment(SwingConstants.RIGHT);
+        //operaciones.setText(acum2 = acum2 + acum + operacion );
+        acum="";
+        indice += 1;
+    }
+
+    //Funcion suma
+    public String suma() {
+    double suma = 0;
+    for (int i = 0; i <= indice; i++) {
+        suma += numeros[i];
+    }
+    return Double.toString(suma);
+}
+    
     public void aparecer(int num) {
         res.setHorizontalAlignment(SwingConstants.RIGHT);
         acum = acum + num;

@@ -4,11 +4,10 @@ import javax.swing.SwingConstants;
 public class iterativa extends javax.swing.JFrame {
 
     //Variables Globales
-    //Vector de entradas del usuario (como numeros y comas)
+    //Entrada usuario
     String acum;
-    String acum2;
-    double numeros[] = new double[10000];
-    //indice
+
+    //indice del vector
     int indice = 0;
 
     //Subrutina para que aparezca el numero en el label de resultado
@@ -16,16 +15,6 @@ public class iterativa extends javax.swing.JFrame {
         res.setHorizontalAlignment(SwingConstants.RIGHT);
         acum = acum + caracter;
         res.setText(acum);
-    }
-
-    //Funcion para convertir vector de caracteres en numeros
-    public double[] convertirNumeros(String[] caracteres) {
-        double[] numeros = new double[indice];
-
-        for (int i = 0; i < indice; i++) {
-            numeros[i] = Double.parseDouble(caracteres[i]);
-        }
-        return numeros;
     }
 
     //Funcion para validar 
@@ -50,57 +39,343 @@ public class iterativa extends javax.swing.JFrame {
 
         return false;
     }
+
     //Subrutina para visualizacion de acumulacion de operaciones
-    public void acumulacion (String operacion){
-        numeros[indice] = Double.parseDouble(acum);
-        operaciones.setHorizontalAlignment(SwingConstants.RIGHT);
-        operaciones.setText(acum2 = acum2 + acum + operacion );
-        acum="";
-        indice += 1;
-    }
-
-    //Funcion suma
-    public String suma() {
-    double suma = 0;
-    for (int i = 0; i <= indice; i++) {
-        suma += numeros[i];
-    }
-    return Double.toString(suma);
-}
-
-
-    public void resta(double numeros) {
-        indice += 1;
-        acum2 = acum;
-        operaciones.setHorizontalAlignment(SwingConstants.RIGHT);
-        operaciones.setText(acum = acum + "-");
+    public void acumulacion(String operacion) {
+        //numeros[indice] = Double.parseDouble(acum);
+        res.setHorizontalAlignment(SwingConstants.RIGHT);
+        res.setText(acum = acum + operacion);
 
     }
+//multiplicacion
 
-    public void division(double numeros) {
-        indice += 1;
-        acum2 = acum;
-        operaciones.setHorizontalAlignment(SwingConstants.RIGHT);
-        operaciones.setText(acum = acum + "/");
+    public static double multiplicacion(double a, double b) {
+        double resultado = 0.0;
 
+        return a * b;
     }
 
-    public void multiplicacion(double numeros) {
-        indice += 1;
-        acum2 = acum;
-        operaciones.setHorizontalAlignment(SwingConstants.RIGHT);
-        operaciones.setText(acum = acum + "*");
+    // Division
+    public static double division(double dividendo, double divisor) {
+        if (divisor == 0) {
+            throw new IllegalArgumentException("El divisor no puede ser cero");
+        }
 
+        return dividendo / divisor;
     }
 
-    //Función resta
-    //Funcion multiplicación
-    //Función división
+    // Division
+    public static double divisionentera(double divi, double divis) {
+        int dividendo = (int) divi;
+        int divisor = (int) divis;
+        if (divisor == 0) {
+            throw new IllegalArgumentException("El divisor no puede ser cero");
+        }
+
+        return dividendo / divisor;
+    }
+
+    //suma
+    public static double suma(double numero1, double numero2) {
+        double suma = numero1 + numero2;
+        return suma;
+    }
+
+    //resta
+    public static double resta(double numero1, double numero2) {
+        double resta = numero1;
+        for (double i = 0.0; i < numero2; i++) {
+            resta--;
+        }
+        return resta;
+    }
+
+    //factorial
+    public static double factorial(double n) {
+        int entero = (int) n;
+        if (entero == 0) {
+            return 1;
+        } else {
+            return entero * factorial(entero - 1);
+        }
+    }
+
+    //pi
+    public static double Pi(int iteraciones) {
+        double pi = 0.0;
+        int signo = 1;
+        for (int i = 0; i < iteraciones; i++) {
+            double termino = 1.0 / (2 * i + 1);
+            pi += signo * termino;
+            signo *= -1;
+        }
+
+        return pi * 4.0;
+    }
+
+    //euler elevado
+    public static double exponencial(double x, int iteraciones) {
+        double exponencial = 1.0;
+        double termino = 1.0;
+
+        for (int i = 1; i <= iteraciones; i++) {
+            termino *= x / i;
+            exponencial += termino;
+        }
+
+        return exponencial;
+    }
+
+    //seno 
+    public static double seno(double tx, int ti) {
+        double tn = 0;
+        double seno, tm, tp, tr, f, p1, fc;
+
+        seno = 0;
+        for (tn = 0; tn <= ti; tn++) {
+            tm = 1;
+            for (tp = 1; tp <= tn; tp++) {
+                tm = (-1) * tm;
+            }
+            f = 1;
+            for (p1 = 1; p1 <= ((2 * tn) + 1); p1++) {
+                f = f * tx;
+            }
+            tr = 1;
+            for (fc = 1; fc <= ((2 * tn) + 1); fc++) {
+                tr = tr * fc;
+            }
+            seno = seno + ((tm / tr) * f);
+        }
+
+        return seno;
+    }
+
+    public static double coseno(double tx, int ti) {
+        double tn = 0;
+        double cos, td, e, ec, cd, t, p2;
+// Coseno
+        cos = 0;
+        for (tn = 0; tn <= ti; tn++) {
+            t = 1;
+            for (p2 = 1; p2 <= tn; p2++) {
+                t = t * (-1);
+            }
+            e = 1;
+            for (ec = 1; ec <= (2 * tn); ec++) {
+                e = e * tx;
+            }
+            td = 1;
+            for (cd = 1; cd <= (2 * tn); cd++) {
+                td = td * cd;
+            }
+            cos = cos + ((t / td) * e);
+        }
+
+        return cos;
+    }
+
+    public static String comprobar(String expresion) {
+        boolean hayCambios = true;
+
+        while (hayCambios == true) {
+            hayCambios = false;
+
+            if (expresion.contains("!")) {
+                int indiceExclamacion = expresion.indexOf("!");
+                int indiceInicioNumero = obtenerIndiceInicioNumero(expresion, indiceExclamacion);
+                int indiceFinNumero = indiceExclamacion;
+
+                String numeroStr = expresion.substring(indiceInicioNumero, indiceFinNumero);
+                double numero = Double.parseDouble(numeroStr);
+
+                double factorial = factorial(numero);
+                expresion = expresion.replaceFirst(numeroStr + "!", String.valueOf(factorial));
+                hayCambios = true;
+                System.out.println("expresion: " + expresion);
+            }
+
+            if (expresion.contains("pi")) {
+                double valorPi = Pi(10);
+                expresion = expresion.replace("pi", String.valueOf(valorPi));
+                hayCambios = true;
+                System.out.println("expresion: " + expresion);
+            }
+            if (expresion.contains("e^")) {
+
+                int indiceEuler = expresion.indexOf("e^");
+                if (indiceEuler != -1) {
+                    int indiceFinNumero = obtenerIndiceFinalNumero(expresion, 2, indiceEuler);
+                    String numeroStre = expresion.substring(indiceEuler + 2, indiceFinNumero);
+                    double numeroexpo = Double.parseDouble(numeroStre);
+
+                    double exponencial = exponencial(numeroexpo, 10000);
+                    String numeroNuevoStr = String.valueOf(exponencial);
+                    expresion = expresion.substring(0, indiceEuler) + numeroNuevoStr + expresion.substring(indiceFinNumero);
+                    hayCambios = true;
+                    System.out.println("expresion: " + expresion);
+                }
+            }
+            if (expresion.contains("sen(")) {
+
+                int indiceSeno = expresion.indexOf("sen(");
+                if (indiceSeno != -1) {
+                    int indiceFinNumero = obtenerIndiceFinalNumero(expresion, 4, indiceSeno);
+                    String numeroStre = expresion.substring(indiceSeno + 4, indiceFinNumero);
+                    double valor = Double.parseDouble(numeroStre);
+                    double seno = seno(valor, 10);
+                    String numeroNuevoStr = String.valueOf(seno);
+                    expresion = expresion.substring(0, indiceSeno) + numeroNuevoStr + expresion.substring(indiceFinNumero + 1);
+                    hayCambios = true;
+                }
+            }
+            if (expresion.contains("cos(")) {
+
+                int indiceCos = expresion.indexOf("cos(");
+                if (indiceCos != -1) {
+                    int indiceFinNumero = obtenerIndiceFinalNumero(expresion, 4, indiceCos);
+                    String numeroStre = expresion.substring(indiceCos + 4, indiceFinNumero);
+                    double valor = Double.parseDouble(numeroStre);
+                    double coseno = coseno(valor, 10000);
+                    String numeroNuevoStr = String.valueOf(coseno);
+                    expresion = expresion.substring(0, indiceCos) + numeroNuevoStr + expresion.substring(indiceFinNumero + 1);
+                    hayCambios = true;
+                }
+            }
+            if (expresion.contains("tan(")) {
+
+                int indiceTan = expresion.indexOf("tan(");
+                if (indiceTan != -1) {
+                    int indiceFinNumero = obtenerIndiceFinalNumero(expresion, 4, indiceTan);
+                    String numeroStre = expresion.substring(indiceTan + 4, indiceFinNumero);
+                    double valor = Double.parseDouble(numeroStre);
+                    double tangente = division(seno(valor, 10000),coseno(valor, 10000));
+                    String numeroNuevoStr = String.valueOf(tangente);
+                    expresion = expresion.substring(0, indiceTan) + numeroNuevoStr + expresion.substring(indiceFinNumero + 1);
+                    hayCambios = true;
+                }
+            }
+
+        }
+
+        return expresion;
+    }
+
+    public static double potencia(double base, double expo) {
+        int exponente = (int) expo;
+        if (exponente == 0) {
+            return 1;
+        } else if (exponente > 0) {
+            return base * potencia(base, exponente - 1);
+        } else {
+            return 1 / (base * potencia(base, -exponente - 1));
+        }
+    }
+
+    public static int obtenerIndiceInicioNumero(String expresion, int indiceExclamacion) {
+        for (int i = indiceExclamacion - 1; i >= 0; i--) {
+            char caracter = expresion.charAt(i);
+            if (!(caracter >= '0' && caracter <= '9') && caracter != '.') {
+                return i + 1;
+            }
+        }
+        return 0;
+    }
+
+    public static int obtenerIndiceFinalNumero(String expresion, int num, int indiceValor) {
+        int longitudExpresion = expresion.length();
+        for (int i = indiceValor + num; i < longitudExpresion; i++) {
+            char caracter = expresion.charAt(i);
+            if (!(caracter >= '0' && caracter <= '9') && caracter != '.') {
+                return i;
+            }
+        }
+        return longitudExpresion;
+    }
+
+// Método para evaluar una expresión matemática
+    public static double evaluarExpresion(String expresion) {
+
+        // Eliminar los espacios en blanco de la expresión
+        expresion = expresion.replaceAll("\\s", "");
+
+        // Buscar el operador de mayor precedencia
+        int index = encontrarOperadorPrecedente(expresion);
+
+        // Si no se encuentra ningún operador, la expresión es un número único
+        if (index == -1) {
+            return Double.parseDouble(expresion);
+        }
+
+        // Evaluar las subexpresiones izquierda y derecha de acuerdo al operador encontrado
+        double izquierda = evaluarExpresion(expresion.substring(0, index));
+        double derecha = evaluarExpresion(expresion.substring(index + 1));
+
+        // Realizar la operación correspondiente
+        switch (expresion.charAt(index)) {
+            case '+':
+                return suma(izquierda, derecha);
+            case '-':
+                return resta(izquierda, derecha);
+            case '*':
+                return multiplicacion(izquierda, derecha);
+            case '/':
+                return division(izquierda, derecha);
+            case '%':
+                return izquierda % derecha;
+            case '^':
+                return potencia(izquierda, derecha);
+            case 'd':
+                return divisionentera(izquierda, derecha);
+
+        }
+
+        // En caso de que ocurra un error
+        throw new IllegalArgumentException("Expresión inválida");
+    }
+
+    // Función para encontrar el operador de mayor precedencia en una expresión
+    private static int encontrarOperadorPrecedente(String expresion) {
+        int nivelParentesis = 0;
+        int indexOperador = -1;
+        int precedenciaActual = Integer.MAX_VALUE;
+
+        for (int i = 0; i < expresion.length(); i++) {
+            char caracter = expresion.charAt(i);
+
+            if (caracter == '(') {
+                nivelParentesis++;
+            } else if (caracter == ')') {
+                nivelParentesis--;
+            } else if (nivelParentesis == 0 && (caracter == '+' || caracter == '-' || caracter == '*' || caracter == '/' || caracter == '%' || caracter == '^' || caracter == 'd')) {
+                int precedencia = obtenerPrecedencia(caracter);
+
+                if (precedencia <= precedenciaActual) {
+                    precedenciaActual = precedencia;
+                    indexOperador = i;
+                }
+            }
+        }
+
+        return indexOperador;
+    }
+
+    // Función para obtener la precedencia de un operador
+    private static int obtenerPrecedencia(char operador) {
+        if (operador == '+' || operador == '-') {
+            return 1;
+        } else if (operador == '*' || operador == '/' || operador == '%' || operador == '^' || operador == 'd') {
+            return 2;
+
+        }
+
+        return 0;
+    }
+
     public iterativa() {
         initComponents();
         this.setLocationRelativeTo(null);//centrar ventana
         acum = "";
-        acum2 = "";
     }
 
     @SuppressWarnings("unchecked")
@@ -153,12 +428,32 @@ public class iterativa extends javax.swing.JFrame {
         jButton2.setContentAreaFilled(false);
 
         jButton3.setContentAreaFilled(false);
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         jButton4.setContentAreaFilled(false);
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
 
         jButton5.setContentAreaFilled(false);
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
 
         jButton6.setContentAreaFilled(false);
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
 
         jButton7.setContentAreaFilled(false);
         jButton7.addActionListener(new java.awt.event.ActionListener() {
@@ -238,10 +533,25 @@ public class iterativa extends javax.swing.JFrame {
         });
 
         jButton18.setContentAreaFilled(false);
+        jButton18.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton18ActionPerformed(evt);
+            }
+        });
 
         jButton19.setContentAreaFilled(false);
+        jButton19.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton19ActionPerformed(evt);
+            }
+        });
 
         jButton20.setContentAreaFilled(false);
+        jButton20.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton20ActionPerformed(evt);
+            }
+        });
 
         jButton21.setContentAreaFilled(false);
         jButton21.addActionListener(new java.awt.event.ActionListener() {
@@ -265,6 +575,11 @@ public class iterativa extends javax.swing.JFrame {
         });
 
         jButton24.setContentAreaFilled(false);
+        jButton24.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton24ActionPerformed(evt);
+            }
+        });
 
         jButton25.setContentAreaFilled(false);
         jButton25.addActionListener(new java.awt.event.ActionListener() {
@@ -281,10 +596,25 @@ public class iterativa extends javax.swing.JFrame {
         });
 
         jButton27.setContentAreaFilled(false);
+        jButton27.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton27ActionPerformed(evt);
+            }
+        });
 
         jButton28.setContentAreaFilled(false);
+        jButton28.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton28ActionPerformed(evt);
+            }
+        });
 
         jButton29.setContentAreaFilled(false);
+        jButton29.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton29ActionPerformed(evt);
+            }
+        });
 
         res.setFont(new java.awt.Font("Segoe UI", 0, 32)); // NOI18N
         res.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
@@ -310,9 +640,6 @@ public class iterativa extends javax.swing.JFrame {
                 .addGap(331, 331, 331)
                 .addComponent(jButton17, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(250, 250, 250)
-                .addComponent(jButton27, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(360, 360, 360)
                 .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -330,25 +657,10 @@ public class iterativa extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(565, 565, 565)
                 .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(360, 360, 360)
-                .addComponent(jButton26, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(150, 150, 150)
-                .addComponent(jButton28, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addComponent(jLabel1)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(360, 360, 360)
                 .addComponent(jButton15, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(40, 40, 40)
-                .addComponent(jButton29, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(570, 570, 570)
-                .addComponent(jButton24))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(470, 470, 470)
-                .addComponent(jButton25, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(250, 250, 250)
                 .addComponent(jButton14, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -390,6 +702,25 @@ public class iterativa extends javax.swing.JFrame {
                         .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(17, 17, 17)
                 .addComponent(jButton11, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(250, 250, 250)
+                        .addComponent(jButton27, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(360, 360, 360)
+                        .addComponent(jButton26, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(150, 150, 150)
+                        .addComponent(jButton28, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(40, 40, 40)
+                        .addComponent(jButton29, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(470, 470, 470)
+                        .addComponent(jButton25, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(5, 5, 5)
+                .addComponent(jButton24, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -430,9 +761,6 @@ public class iterativa extends javax.swing.JFrame {
                 .addGap(340, 340, 340)
                 .addComponent(jButton12, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(213, 213, 213)
-                .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(273, 273, 273)
                 .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -455,22 +783,22 @@ public class iterativa extends javax.swing.JFrame {
                 .addGap(340, 340, 340)
                 .addComponent(jButton14, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addComponent(operaciones, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(60, 60, 60)
-                .addComponent(res, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(50, 50, 50)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(20, 20, 20)
-                        .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(100, 100, 100)
-                        .addComponent(jButton11, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(10, 10, 10)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(30, 30, 30)
+                        .addComponent(operaciones, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(60, 60, 60)
+                        .addComponent(res, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(50, 50, 50)
+                                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(20, 20, 20)
+                                .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(100, 100, 100)
+                                .addComponent(jButton11, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(10, 10, 10)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jButton13, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -479,12 +807,17 @@ public class iterativa extends javax.swing.JFrame {
                         .addGap(10, 10, 10)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jButton19, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton23, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jButton23, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(213, 213, 213)
+                        .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(10, 10, 10)
                         .addComponent(jButton27, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(167, 167, 167)
-                        .addComponent(jButton24, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(11, 11, 11)
+                        .addComponent(jButton24, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE))))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -505,6 +838,8 @@ public class iterativa extends javax.swing.JFrame {
         prin i = new prin();
         this.dispose();
         i.setVisible(true);
+
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
@@ -554,10 +889,9 @@ public class iterativa extends javax.swing.JFrame {
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         if (validacion(acum) == false) {
-
         } else {
             acumulacion("+");
-            res.setText(suma());
+
         }
     }//GEN-LAST:event_jButton7ActionPerformed
 
@@ -565,7 +899,8 @@ public class iterativa extends javax.swing.JFrame {
         if (validacion(acum) == false) {
 
         } else {
-            division(20.00);
+            acumulacion("/");
+
         }
     }//GEN-LAST:event_jButton14ActionPerformed
 
@@ -573,24 +908,82 @@ public class iterativa extends javax.swing.JFrame {
         if (validacion(acum) == false) {
 
         } else {
-            multiplicacion(29.2);
+
+            acumulacion("*");
+
         }
     }//GEN-LAST:event_jButton13ActionPerformed
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
         if (validacion(acum) == false) {
-
         } else {
-            resta(23.3);
+            acumulacion("-");
+
         }
     }//GEN-LAST:event_jButton8ActionPerformed
 
     private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
-        acum = acum.substring(0, acum.length() - 1);
-        res.setText(acum);
+        if (acum != "") {
+            acum = acum.substring(0, acum.length() - 1);
+            res.setText(acum);
+        }
+
     }//GEN-LAST:event_jButton12ActionPerformed
 
-   
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        acum = "";
+        res.setText("");
+        operaciones.setText("");
+
+
+    }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void jButton24ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton24ActionPerformed
+        String comprobacion = comprobar(acum);
+        double resultado = evaluarExpresion(comprobacion);
+        res.setText(String.valueOf(resultado));
+        acum = String.valueOf(resultado);
+    }//GEN-LAST:event_jButton24ActionPerformed
+
+    private void jButton27ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton27ActionPerformed
+        aparecer("!");
+    }//GEN-LAST:event_jButton27ActionPerformed
+
+    private void jButton20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton20ActionPerformed
+        aparecer("%");
+    }//GEN-LAST:event_jButton20ActionPerformed
+
+    private void jButton19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton19ActionPerformed
+        aparecer("d");
+    }//GEN-LAST:event_jButton19ActionPerformed
+
+    private void jButton18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton18ActionPerformed
+        aparecer("pi");
+    }//GEN-LAST:event_jButton18ActionPerformed
+
+    private void jButton29ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton29ActionPerformed
+        aparecer("e^");
+    }//GEN-LAST:event_jButton29ActionPerformed
+
+    private void jButton28ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton28ActionPerformed
+        aparecer("^");
+    }//GEN-LAST:event_jButton28ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+       aparecer("sen(");
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+         aparecer("cos(");
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        aparecer("tan(");
+    }//GEN-LAST:event_jButton5ActionPerformed
+
+    /**
+     * @param args the command line arguments
+     */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">

@@ -64,7 +64,7 @@ public class iterativa extends javax.swing.JFrame {
         return dividendo / divisor;
     }
 
-    // Division
+    // Division entera
     public static double divisionentera(double divi, double divis) {
         int dividendo = (int) divi;
         int divisor = (int) divis;
@@ -174,7 +174,16 @@ public class iterativa extends javax.swing.JFrame {
 
         return cos;
     }
+    //eliminar decimal .0
+    public static String eliminarCero(String cadena) {
+    int longitud = cadena.length();
+    if (longitud >= 2 && cadena.substring(longitud - 2).equals(".0")) {
+        cadena = cadena.substring(0, longitud - 2);
+    }
+    return cadena;
+}
 
+    //comprobar ciertas operaciones o variables
     public static String comprobar(String expresion) {
         boolean hayCambios = true;
 
@@ -941,8 +950,9 @@ public class iterativa extends javax.swing.JFrame {
     }
         String comprobacion = comprobar(acum);
         double resultado = evaluarExpresion(comprobacion);
-        res.setText(String.valueOf(resultado));
-        acum = String.valueOf(resultado);
+        
+        res.setText(eliminarCero(String.valueOf(resultado)));
+        acum = eliminarCero(String.valueOf(resultado));
     }//GEN-LAST:event_jButton24ActionPerformed
 
     private void jButton27ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton27ActionPerformed

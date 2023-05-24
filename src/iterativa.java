@@ -525,6 +525,11 @@ public class iterativa extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                formMouseClicked(evt);
+            }
+        });
 
         jButton1.setContentAreaFilled(false);
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -953,6 +958,7 @@ public class iterativa extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jButton15ActionPerformed
 
+    
     private void jButton26ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton26ActionPerformed
         if (acum.length() == 0) {
             if (acum == "" || caracternumerico(acum) == false && acum.substring(acum.length() - 1) != "i") {
@@ -1135,9 +1141,38 @@ public class iterativa extends javax.swing.JFrame {
         p = false;
     }//GEN-LAST:event_parentesisActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
+    private void formMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseClicked
+       
+    }//GEN-LAST:event_formMouseClicked
+
+    float opa=255, tam=0;
+boolean dib=false;
+float time=0, seg=40000;  
+    void puntero(){
+
+  //PUNTERO
+//  if (dib) {
+//    if (opa>0) {
+//      fill(255, 208, 131, opa); //Circulo 1
+//      noStroke();
+//      ellipse(mouseX, mouseY, 50, 50);
+//      fill(214, 102, 11, opa); //Circulo 2 el que sera mas pequeño y crecera
+//      noStroke();
+//      ellipse(mouseX, mouseY, 10+tam, 10+tam);
+//
+//      time+=1500; //tiempo en aumento
+//      opa=map(time, 0, seg, 255, 0); //transparencia
+//      tam=map(time, 0, seg, 0, 40);//tamaño
+//
+//      if (time>=seg) { //si el tiempo en aumento llega al limite de segundos del efecto que pare y se reinicie
+//        dib=false;
+//        time=0;
+//        opa=255;
+//        tam=0;
+//      }
+//    }
+//    }
+    }
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">

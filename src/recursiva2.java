@@ -3,7 +3,8 @@ import javax.swing.SwingConstants;
 
 public class recursiva2 extends javax.swing.JFrame {
 
-  //Variables Globales
+    
+    //Variables Globales
     //Entrada usuario
     String acum;
     //Para comprobar si el usuario dividio un numero entre 0
@@ -24,7 +25,7 @@ public class recursiva2 extends javax.swing.JFrame {
         boolean c = false;
         for (int i = 0; i < 10; i++) {
             String i2 = Integer.toString(i);
-            if (cadena.substring(cadena.length() - 1) == i2) {
+            if (cadena.substring(cadena.length() - 1).equals(i2)) {
                 return c = true;
             }
         }
@@ -60,6 +61,61 @@ public class recursiva2 extends javax.swing.JFrame {
         }
 
         return false;
+    }
+
+    //validar multiplicar un numero despues de e o pi
+    public void validar(String cadena) {
+        if (acum.length() == 0) {
+            aparecer(cadena);
+            operaciones.setText("");
+        } else if (acum.substring(acum.length() - 1).equals("i") || acum.substring(acum.length() - 1).equals("e")) {
+            aparecer("*"+cadena);
+            operaciones.setText("");
+        } else {
+            aparecer(cadena);
+            operaciones.setText("");
+        }
+    }
+
+    //validar multiplicar sen, cos, tan despues de e o pi
+    public void validar2(String cadena) {
+        if (acum.length() == 0) {
+            aparecer(cadena);
+            parentesis.setVisible(true);//visualizacion de parentesis para el usuario
+            p = true;
+        } else if (acum.substring(acum.length() - 1).equals("i") || acum.substring(acum.length() - 1).equals("e")) {
+            aparecer("*"+cadena);
+            parentesis.setVisible(true);//visualizacion de parentesis para el usuario
+            p = true;
+        } else {
+            aparecer(cadena);
+            parentesis.setVisible(true);//visualizacion de parentesis para el usuario
+            p = true;
+        }
+    }
+
+    //validar que se sobreescriba un operador sobre otro
+    public void validar3(String cadena) {
+        if (acum.length() != 0 && acum.substring(acum.length() - 1) != "i") {
+            if (acum.substring(acum.length() - 1).equals("i")) {
+
+            } else {
+                if (validacion2(acum) == false) {
+                    if (validacion(acum) == false) {
+                        acum = acum.substring(0, acum.length() - 1);
+                        res.setText(acum);
+                    }
+                }
+            }
+        }
+        if (acum.length() == 0) {
+            operaciones.setText("Opcion no valida");
+        } else if (acum.substring(acum.length() - 1).equals("(")) {
+            operaciones.setText("Opcion no valida");
+        } else {
+            aparecer(cadena);
+            operaciones.setText("");
+        }
     }
 
     //eliminar decimal .0
@@ -235,17 +291,21 @@ public class recursiva2 extends javax.swing.JFrame {
                 expresion = expresion.replace("pi", String.valueOf(valorPi));
                 hayCambios = true;
                 System.out.println("expresion: " + expresion);
-            } 
-            if (expresion.contains("e^")) {
-                if (expresion.contains("e")) {//si hay un numero exponencial  se evalua enseguida
-                    int indiceEuler = expresion.indexOf("e");
+            }
+            if (expresion.contains("e") && !expresion.contains("sen")) {
+                int indiceEuler = expresion.indexOf("e");
+                int indiceSen = expresion.indexOf("sen");
+
+                // Verificar que "sen" no se encuentre antes o después de "e"
+                if ((indiceSen == -1) || (indiceSen > indiceEuler)) {
+
                     if (indiceEuler != -1) {
                         double exponencial = exponencial(1, 10000);
                         expresion = expresion.replaceFirst("e", String.valueOf(exponencial));
                         hayCambios = true;
                         System.out.println("expresion: " + expresion);
                     }
-                        
+
                 }
             }
             if (expresion.contains("sen(")) {
@@ -266,7 +326,7 @@ public class recursiva2 extends javax.swing.JFrame {
                     String numeroNuevoStr = String.valueOf(seno * signo);
 
                     expresion = expresion.substring(0, indiceSeno) + numeroNuevoStr + expresion.substring(indiceFinNumero + 1);
-                    
+
                     hayCambios = true;
                 }
             }
@@ -332,8 +392,6 @@ public class recursiva2 extends javax.swing.JFrame {
         }
         return longitudExpresion;
     }
-//SUBRUTINA PRINCIPAL
-// Método para evaluar una expresión matemática
 
     public double evaluarExpresion(String expresion) {
 
@@ -431,7 +489,7 @@ public class recursiva2 extends javax.swing.JFrame {
     private static int obtenerPrecedencia(char operador) {
         if (operador == '+' || operador == '-') {
             return 1;
-        }else if (operador == '^' ) {
+        } else if (operador == '^') {
             return 3;
 
         } else if (operador == '*' || operador == '/' || operador == '%' || operador == '^' || operador == 'd') {
@@ -441,7 +499,8 @@ public class recursiva2 extends javax.swing.JFrame {
 
         return 0;
     }
-     public recursiva2() {
+
+    public recursiva2() {
         initComponents();
         this.setLocationRelativeTo(null);//centrar ventana
         acum = "";
@@ -449,9 +508,7 @@ public class recursiva2 extends javax.swing.JFrame {
         parentesis.setVisible(false);
         error = 0;
     }
-    
 
-   
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -911,21 +968,15 @@ public class recursiva2 extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        aparecer("sen(");
-        parentesis.setVisible(true);//visualizacion de parentesis para el usuario
-        p = true;
+        validar2("sen(");
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        aparecer("cos(");
-        parentesis.setVisible(true);//visualizacion de parentesis para el usuario
-        p = true;
+        validar2("cos(");
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        aparecer("tan(");
-        parentesis.setVisible(true);//visualizacion de parentesis para el usuario
-        p = true;
+        validar2("tan(");
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
@@ -937,22 +988,7 @@ public class recursiva2 extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-        if (acum.length() != 0) {
-            if (validacion2(acum) == false) {
-                if (validacion(acum) == false) {
-                    acum = acum.substring(0, acum.length() - 1);
-                    res.setText(acum);
-                }
-            }
-        }
-        if (acum.length() == 0) {
-            operaciones.setText("Opcion no valida");
-        } else if (acum.substring(acum.length() - 1).equals("(")) {
-            operaciones.setText("Opcion no valida");
-        } else {
-            aparecer("+");
-            operaciones.setText("");
-        }
+        validar3("+");
 
     }//GEN-LAST:event_jButton7ActionPerformed
 
@@ -976,18 +1012,15 @@ public class recursiva2 extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton8ActionPerformed
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
-        aparecer("9");
-        operaciones.setText("");
+        validar("9");
     }//GEN-LAST:event_jButton9ActionPerformed
 
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
-        aparecer("8");
-        operaciones.setText("");
+        validar("8");
     }//GEN-LAST:event_jButton10ActionPerformed
 
     private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
-        aparecer("7");
-        operaciones.setText("");
+        validar("7");
     }//GEN-LAST:event_jButton11ActionPerformed
 
     private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
@@ -1007,115 +1040,52 @@ public class recursiva2 extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton12ActionPerformed
 
     private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
-        if (acum.length() != 0) {
-            if (validacion2(acum) == false) {
-                if (validacion(acum) == false) {
-                    acum = acum.substring(0, acum.length() - 1);
-                    res.setText(acum);
-                }
-            }
-        }
-        if (acum.length() == 0) {
-            operaciones.setText("Opcion no valida");
-        } else if (acum.substring(acum.length() - 1).equals("(")) {
-            operaciones.setText("Opcion no valida");
-        } else {
-            aparecer("*");
-            operaciones.setText("");
-        }
+        validar3("*");
 
     }//GEN-LAST:event_jButton13ActionPerformed
 
     private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
-        if (acum.length() != 0) {
-            if (validacion2(acum) == false) {
-                if (validacion(acum) == false) {
-                    acum = acum.substring(0, acum.length() - 1);
-                    res.setText(acum);
-                }
-            }
-        }
-        if (acum.length() == 0) {
-            operaciones.setText("Opcion no valida");
-        } else if (acum.substring(acum.length() - 1).equals("(")) {
-            operaciones.setText("Opcion no valida");
-        } else {
-            aparecer("/");
-            operaciones.setText("");
-        }
+        validar3("/");
 
     }//GEN-LAST:event_jButton14ActionPerformed
 
     private void jButton15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton15ActionPerformed
-        aparecer("6");
-        operaciones.setText("");
+        validar("6");
     }//GEN-LAST:event_jButton15ActionPerformed
 
     private void jButton16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton16ActionPerformed
-        aparecer("5");
-        operaciones.setText("");
+        validar("5");
     }//GEN-LAST:event_jButton16ActionPerformed
 
     private void jButton17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton17ActionPerformed
-        aparecer("4");
-        operaciones.setText("");
+        validar("4");
     }//GEN-LAST:event_jButton17ActionPerformed
 
     private void jButton18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton18ActionPerformed
-        aparecer("pi");
+        if (caracternumerico(acum)==true){
+            validar("*pi");
+        }else{
+            validar("pi");}
     }//GEN-LAST:event_jButton18ActionPerformed
 
     private void jButton19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton19ActionPerformed
-        if (acum.length() != 0) {
-            if (validacion2(acum) == false) {
-                if (validacion(acum) == false) {
-                    acum = acum.substring(0, acum.length() - 1);
-                    res.setText(acum);
-                }
-            }
-        }
-        if (acum.length() == 0) {
-            operaciones.setText("Opcion no valida");
-        } else if (acum.substring(acum.length() - 1).equals("(")) {
-            operaciones.setText("Opcion no valida");
-        } else {
-            aparecer("d");
-            operaciones.setText("");
-        }
+        validar3("d");
     }//GEN-LAST:event_jButton19ActionPerformed
 
     private void jButton20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton20ActionPerformed
-        if (acum.length() != 0) {
-            if (validacion2(acum) == false) {
-                if (validacion(acum) == false) {
-                    acum = acum.substring(0, acum.length() - 1);
-                    res.setText(acum);
-                }
-            }
-        }
-        if (acum.length() == 0) {
-            operaciones.setText("Opcion no valida");
-        } else if (acum.substring(acum.length() - 1).equals("(")) {
-            operaciones.setText("Opcion no valida");
-        } else {
-            aparecer("%");
-            operaciones.setText("");
-        }
+        validar3("%");
     }//GEN-LAST:event_jButton20ActionPerformed
 
     private void jButton21ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton21ActionPerformed
-        aparecer("3");
-        operaciones.setText("");
+        validar("3");
     }//GEN-LAST:event_jButton21ActionPerformed
 
     private void jButton22ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton22ActionPerformed
-        aparecer("2");
-        operaciones.setText("");
+        validar("2");
     }//GEN-LAST:event_jButton22ActionPerformed
 
     private void jButton23ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton23ActionPerformed
-        aparecer("1");
-        operaciones.setText("");
+        validar("1");
     }//GEN-LAST:event_jButton23ActionPerformed
 
     private void jButton24ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton24ActionPerformed
@@ -1135,13 +1105,20 @@ public class recursiva2 extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton24ActionPerformed
 
     private void jButton25ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton25ActionPerformed
-        aparecer("0");
-        operaciones.setText("");
+        validar("0");
     }//GEN-LAST:event_jButton25ActionPerformed
 
     private void jButton26ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton26ActionPerformed
-
-        if (acum == "" || caracternumerico(acum) == false) {
+        if (acum.length() == 0) {
+            if (acum == "" || caracternumerico(acum) == false && acum.substring(acum.length() - 1) != "i") {
+                aparecer("0.");
+            } else {
+                aparecer(".");
+            }
+            operaciones.setText("");
+        } else if (acum.substring(acum.length() - 1).equals("i") || acum.substring(acum.length() - 1).equals("e")) {
+            operaciones.setText("Opcion no valida");
+        } else if (acum == "" || caracternumerico(acum) == false && acum.substring(acum.length() - 1) != "i") {
             aparecer("0.");
         } else {
             aparecer(".");
@@ -1150,44 +1127,18 @@ public class recursiva2 extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton26ActionPerformed
 
     private void jButton27ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton27ActionPerformed
-        if (acum.length() != 0) {
-            if (validacion2(acum) == false) {
-                if (validacion(acum) == false) {
-                    acum = acum.substring(0, acum.length() - 1);
-                    res.setText(acum);
-                }
-            }
-        }
-        if (acum.length() == 0) {
-            operaciones.setText("Opcion no valida");
-        } else if (acum.substring(acum.length() - 1).equals("(")) {
-            operaciones.setText("Opcion no valida");
-        } else {
-            aparecer("!");
-            operaciones.setText("");
-        }
+        validar3("!");
     }//GEN-LAST:event_jButton27ActionPerformed
 
     private void jButton28ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton28ActionPerformed
-        if (acum.length() != 0) {
-            if (validacion2(acum) == false) {
-                if (validacion(acum) == false) {
-                    acum = acum.substring(0, acum.length() - 1);
-                    res.setText(acum);
-                }
-            }
-        }
-        if (acum.length() == 0) {
-            operaciones.setText("Opcion no valida");
-        } else {
-            aparecer("^");
-            operaciones.setText("");
-        }
+        validar3("^");
     }//GEN-LAST:event_jButton28ActionPerformed
 
     private void jButton29ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton29ActionPerformed
-        aparecer("e^");
-        operaciones.setText("");
+        if (caracternumerico(acum)==true){
+            validar("*e^");
+        }else{validar("e^");
+        }
     }//GEN-LAST:event_jButton29ActionPerformed
 
     private void parentesisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_parentesisActionPerformed

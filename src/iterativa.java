@@ -24,7 +24,7 @@ public class iterativa extends javax.swing.JFrame {
         boolean c = false;
         for (int i = 0; i < 10; i++) {
             String i2 = Integer.toString(i);
-            if (cadena.substring(cadena.length() - 1) == i2) {
+            if (cadena.substring(cadena.length() - 1).equals(i2)) {
                 return c = true;
             }
         }
@@ -62,31 +62,58 @@ public class iterativa extends javax.swing.JFrame {
         return false;
     }
 
-    //validar no escribir un numero despues de e o pi
+    //validar multiplicar un numero despues de e o pi
     public void validar(String cadena) {
         if (acum.length() == 0) {
             aparecer(cadena);
             operaciones.setText("");
         } else if (acum.substring(acum.length() - 1).equals("i") || acum.substring(acum.length() - 1).equals("e")) {
-            operaciones.setText("Opcion no valida");
+            aparecer("*"+cadena);
+            operaciones.setText("");
         } else {
             aparecer(cadena);
             operaciones.setText("");
         }
     }
 
-    //validar no escribir sen, cos, tan despues de e o pi
+    //validar multiplicar sen, cos, tan despues de e o pi
     public void validar2(String cadena) {
         if (acum.length() == 0) {
             aparecer(cadena);
             parentesis.setVisible(true);//visualizacion de parentesis para el usuario
             p = true;
         } else if (acum.substring(acum.length() - 1).equals("i") || acum.substring(acum.length() - 1).equals("e")) {
-            operaciones.setText("Opcion no valida");
+            aparecer("*"+cadena);
+            parentesis.setVisible(true);//visualizacion de parentesis para el usuario
+            p = true;
         } else {
             aparecer(cadena);
             parentesis.setVisible(true);//visualizacion de parentesis para el usuario
             p = true;
+        }
+    }
+
+    //validar que se sobreescriba un operador sobre otro
+    public void validar3(String cadena) {
+        if (acum.length() != 0 && acum.substring(acum.length() - 1) != "i") {
+            if (acum.substring(acum.length() - 1).equals("i")) {
+
+            } else {
+                if (validacion2(acum) == false) {
+                    if (validacion(acum) == false) {
+                        acum = acum.substring(0, acum.length() - 1);
+                        res.setText(acum);
+                    }
+                }
+            }
+        }
+        if (acum.length() == 0) {
+            operaciones.setText("Opcion no valida");
+        } else if (acum.substring(acum.length() - 1).equals("(")) {
+            operaciones.setText("Opcion no valida");
+        } else {
+            aparecer(cadena);
+            operaciones.setText("");
         }
     }
 
@@ -1002,101 +1029,35 @@ public class iterativa extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton9ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-        if (acum.length() != 0 && acum.substring(acum.length() - 1) != "i") {
-            if (acum.substring(acum.length() - 1).equals("i") || acum.substring(acum.length() - 1).equals("e")) {
-
-            } else {
-                System.out.println(acum.substring(acum.length() - 1));
-                if (validacion2(acum) == false) {
-                    if (validacion(acum) == false) {
-                        acum = acum.substring(0, acum.length() - 1);
-                        res.setText(acum);
-                    }
-                }
-            }
-        }
-        if (acum.length() == 0) {
-            operaciones.setText("Opcion no valida");
-        } else if (acum.substring(acum.length() - 1).equals("(")) {
-            operaciones.setText("Opcion no valida");
-        } else {
-            aparecer("+");
-            operaciones.setText("");
-        }
+        validar3("+");
 
 
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
-        if (acum.length() != 0 && acum.substring(acum.length() - 1) != "i") {
-            if (acum.substring(acum.length() - 1).equals("i") || acum.substring(acum.length() - 1).equals("e")) {
-
-            } else {
-                System.out.println(acum.substring(acum.length() - 1));
-                if (validacion2(acum) == false) {
-                    if (validacion(acum) == false) {
-                        acum = acum.substring(0, acum.length() - 1);
-                        res.setText(acum);
-                    }
-                }
-            }
-        }
-        if (acum.length() == 0) {
-            operaciones.setText("Opcion no valida");
-        } else if (acum.substring(acum.length() - 1).equals("(")) {
-            operaciones.setText("Opcion no valida");
-        } else {
-            aparecer("/");
-            operaciones.setText("");
-        }
+        validar3("/");
 
 
     }//GEN-LAST:event_jButton14ActionPerformed
 
     private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
-        if (acum.length() != 0 && acum.substring(acum.length() - 1) != "i") {
-            if (acum.substring(acum.length() - 1).equals("i") || acum.substring(acum.length() - 1).equals("e")) {
-
-            } else {
-                System.out.println(acum.substring(acum.length() - 1));
-                if (validacion2(acum) == false) {
-                    if (validacion(acum) == false) {
-                        acum = acum.substring(0, acum.length() - 1);
-                        res.setText(acum);
-                    }
-                }
-            }
-        }
-        if (acum.length() == 0) {
-            operaciones.setText("Opcion no valida");
-        } else if (acum.substring(acum.length() - 1).equals("(")) {
-            operaciones.setText("Opcion no valida");
-        } else {
-            aparecer("*");
-            operaciones.setText("");
-        }
+        validar3("*");
 
 
     }//GEN-LAST:event_jButton13ActionPerformed
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
-        if (acum.length() != 0 && acum.substring(acum.length() - 1) != "i") {
-            if (acum.substring(acum.length() - 1).equals("i") || acum.substring(acum.length() - 1).equals("e")) {
-
-            } else {
-                System.out.println(acum.substring(acum.length() - 1));
-                if (validacion2(acum) == false) {
-                    if (validacion(acum) == false) {
-                        acum = acum.substring(0, acum.length() - 1);
-                        res.setText(acum);
-                    }
+        if (acum.length() != 0) {
+            if (validacion2(acum) == false) {
+                if (validacion(acum) == false) {
+                    acum = acum.substring(0, acum.length() - 1);
+                    res.setText(acum);
                 }
             }
         }
         if (acum.length() == 0) {
-            operaciones.setText("Opcion no valida");
-        } else if (acum.substring(acum.length() - 1).equals("(")) {
-            operaciones.setText("Opcion no valida");
+            aparecer("-");
+            operaciones.setText("");
         } else {
             aparecer("-");
             operaciones.setText("");
@@ -1148,108 +1109,33 @@ public class iterativa extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton24ActionPerformed
 
     private void jButton27ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton27ActionPerformed
-        if (acum.length() != 0 && acum.substring(acum.length() - 1) != "i") {
-            if (acum.substring(acum.length() - 1).equals("i") || acum.substring(acum.length() - 1).equals("e")) {
-
-            } else {
-                System.out.println(acum.substring(acum.length() - 1));
-                if (validacion2(acum) == false) {
-                    if (validacion(acum) == false) {
-                        acum = acum.substring(0, acum.length() - 1);
-                        res.setText(acum);
-                    }
-                }
-            }
-        }
-        if (acum.length() == 0) {
-            operaciones.setText("Opcion no valida");
-        } else if (acum.substring(acum.length() - 1).equals("(")) {
-            operaciones.setText("Opcion no valida");
-        } else {
-            aparecer("!");
-            operaciones.setText("");
-        }
+         validar3("!");
     }//GEN-LAST:event_jButton27ActionPerformed
 
     private void jButton20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton20ActionPerformed
-        if (acum.length() != 0 && acum.substring(acum.length() - 1) != "i") {
-            if (acum.substring(acum.length() - 1).equals("i") || acum.substring(acum.length() - 1).equals("e")) {
-
-            } else {
-                System.out.println(acum.substring(acum.length() - 1));
-                if (validacion2(acum) == false) {
-                    if (validacion(acum) == false) {
-                        acum = acum.substring(0, acum.length() - 1);
-                        res.setText(acum);
-                    }
-                }
-            }
-        }
-        if (acum.length() == 0) {
-            operaciones.setText("Opcion no valida");
-        } else if (acum.substring(acum.length() - 1).equals("(")) {
-            operaciones.setText("Opcion no valida");
-        } else {
-            aparecer("%");
-            operaciones.setText("");
-        }
+         validar3("%");
     }//GEN-LAST:event_jButton20ActionPerformed
 
     private void jButton19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton19ActionPerformed
-        if (acum.length() != 0 && acum.substring(acum.length() - 1) != "i") {
-            if (acum.substring(acum.length() - 1).equals("i") || acum.substring(acum.length() - 1).equals("e")) {
-
-            } else {
-                System.out.println(acum.substring(acum.length() - 1));
-                if (validacion2(acum) == false) {
-                    if (validacion(acum) == false) {
-                        acum = acum.substring(0, acum.length() - 1);
-                        res.setText(acum);
-                    }
-                }
-            }
-        }
-        if (acum.length() == 0) {
-            operaciones.setText("Opcion no valida");
-        } else if (acum.substring(acum.length() - 1).equals("(")) {
-            operaciones.setText("Opcion no valida");
-        } else {
-            aparecer("d");
-            operaciones.setText("");
-        }
+         validar3("d");
     }//GEN-LAST:event_jButton19ActionPerformed
 
     private void jButton18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton18ActionPerformed
-        validar("pi");
+if (caracternumerico(acum)==true){
+            validar("*pi");
+        }else{
+        validar("pi");}
     }//GEN-LAST:event_jButton18ActionPerformed
 
     private void jButton29ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton29ActionPerformed
-        validar("e^");
-
+         if (caracternumerico(acum)==true){
+            validar("*e^");
+        }else{validar("e^");
+         }
     }//GEN-LAST:event_jButton29ActionPerformed
 
     private void jButton28ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton28ActionPerformed
-        if (acum.length() != 0 && acum.substring(acum.length() - 1) != "i") {
-            if (acum.substring(acum.length() - 1).equals("i")) {
-
-            } else {
-                System.out.println(acum.substring(acum.length() - 1));
-                if (validacion2(acum) == false) {
-                    if (validacion(acum) == false) {
-                        acum = acum.substring(0, acum.length() - 1);
-                        res.setText(acum);
-                    }
-                }
-            }
-        }
-        if (acum.length() == 0) {
-            operaciones.setText("Opcion no valida");
-        } else if (acum.substring(acum.length() - 1).equals("(")) {
-            operaciones.setText("Opcion no valida");
-        } else {
-            aparecer("^");
-            operaciones.setText("");
-        }
+         validar3("^");
     }//GEN-LAST:event_jButton28ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed

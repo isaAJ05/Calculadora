@@ -3,8 +3,8 @@ public class PRINCIPAL2 extends javax.swing.JFrame {
 
     public PRINCIPAL2() {
         initComponents();
-                this.setLocationRelativeTo(null);//centrar ventana
-this.setResizable(false);
+        this.setLocationRelativeTo(null);//centrar ventana
+        this.setResizable(false);
     }
 
     @SuppressWarnings("unchecked")
@@ -59,7 +59,7 @@ this.setResizable(false);
         r.setVisible(true);
     }//GEN-LAST:event_jButton3ActionPerformed
 
-   // hjgjhgjy
+    // hjgjhgjy
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">

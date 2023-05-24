@@ -68,7 +68,7 @@ public class iterativa extends javax.swing.JFrame {
             aparecer(cadena);
             operaciones.setText("");
         } else if (acum.substring(acum.length() - 1).equals("i") || acum.substring(acum.length() - 1).equals("e")) {
-            aparecer("*"+cadena);
+            aparecer("*" + cadena);
             operaciones.setText("");
         } else {
             aparecer(cadena);
@@ -83,7 +83,7 @@ public class iterativa extends javax.swing.JFrame {
             parentesis.setVisible(true);//visualizacion de parentesis para el usuario
             p = true;
         } else if (acum.substring(acum.length() - 1).equals("i") || acum.substring(acum.length() - 1).equals("e")) {
-            aparecer("*"+cadena);
+            aparecer("*" + cadena);
             parentesis.setVisible(true);//visualizacion de parentesis para el usuario
             p = true;
         } else {
@@ -503,7 +503,7 @@ public class iterativa extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);//centrar ventana
         acum = "";
-
+        this.setResizable(false);
         parentesis.setVisible(false);
         error = 0;
     }
@@ -960,7 +960,7 @@ public class iterativa extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         //Instancia para volver
-        prin i = new prin();
+        PRINCIPAL2 i = new PRINCIPAL2();
         this.dispose();
         i.setVisible(true);
 
@@ -1109,33 +1109,35 @@ public class iterativa extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton24ActionPerformed
 
     private void jButton27ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton27ActionPerformed
-         validar3("!");
+        validar3("!");
     }//GEN-LAST:event_jButton27ActionPerformed
 
     private void jButton20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton20ActionPerformed
-         validar3("%");
+        validar3("%");
     }//GEN-LAST:event_jButton20ActionPerformed
 
     private void jButton19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton19ActionPerformed
-         validar3("d");
+        validar3("d");
     }//GEN-LAST:event_jButton19ActionPerformed
 
     private void jButton18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton18ActionPerformed
-if (caracternumerico(acum)==true){
+        if (caracternumerico(acum) == true) {
             validar("*pi");
-        }else{
-        validar("pi");}
+        } else {
+            validar("pi");
+        }
     }//GEN-LAST:event_jButton18ActionPerformed
 
     private void jButton29ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton29ActionPerformed
-         if (caracternumerico(acum)==true){
+        if (caracternumerico(acum) == true) {
             validar("*e^");
-        }else{validar("e^");
-         }
+        } else {
+            validar("e^");
+        }
     }//GEN-LAST:event_jButton29ActionPerformed
 
     private void jButton28ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton28ActionPerformed
-         validar3("^");
+        validar3("^");
     }//GEN-LAST:event_jButton28ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed

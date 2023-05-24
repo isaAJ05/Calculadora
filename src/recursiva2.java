@@ -503,6 +503,7 @@ public class recursiva2 extends javax.swing.JFrame {
     public recursiva2() {
         initComponents();
         this.setLocationRelativeTo(null);//centrar ventana
+        this.setResizable(false);
         acum = "";
 
         parentesis.setVisible(false);
@@ -961,7 +962,7 @@ public class recursiva2 extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         //Instancia para volver
-        prin i = new prin();
+        PRINCIPAL2 i = new PRINCIPAL2();
         this.dispose();
         i.setVisible(true);
 

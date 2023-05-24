@@ -215,52 +215,28 @@ public class iterativa extends javax.swing.JFrame {
     }
 
     //seno 
-    public static double seno(double tx, int ti) {
-        double tn = 0;
-        double seno, tm, tp, tr, f, p1, fc;
+    public static double seno(double x) {
+        double seno = 0;
+        double termino = x;
 
-        seno = 0;
-        for (tn = 0; tn <= ti; tn++) {
-            tm = 1;
-            for (tp = 1; tp <= tn; tp++) {
-                tm = (-1) * tm;
-            }
-            f = 1;
-            for (p1 = 1; p1 <= ((2 * tn) + 1); p1++) {
-                f = f * tx;
-            }
-            tr = 1;
-            for (fc = 1; fc <= ((2 * tn) + 1); fc++) {
-                tr = tr * fc;
-            }
-            seno = seno + ((tm / tr) * f);
+        for (int i = 1; i <= 10; i++) {
+            seno += termino;
+            termino *= -1 * x * x / ((2 * i) * (2 * i + 1));
         }
 
         return seno;
     }
+    //coseno
+    public static double coseno(double x) {
+        double coseno = 0;
+        double term = 1;
 
-    public static double coseno(double tx, int ti) {
-        double tn = 0;
-        double cos, td, e, ec, cd, t, p2;
-// Coseno
-        cos = 0;
-        for (tn = 0; tn <= ti; tn++) {
-            t = 1;
-            for (p2 = 1; p2 <= tn; p2++) {
-                t = t * (-1);
-            }
-            e = 1;
-            for (ec = 1; ec <= (2 * tn); ec++) {
-                e = e * tx;
-            }
-            td = 1;
-            for (cd = 1; cd <= (2 * tn); cd++) {
-                td = td * cd;
-            }
-            cos = cos + ((t / td) * e);
+        for (int i = 0; i <= 10; i++) {
+            coseno += term;
+            term *= -1 * x * x / ((2 * i + 1) * (2 * i + 2));
         }
 
-        return cos;
+        return coseno;
     }
 
     //CALCULO DE EXPRESIONES
@@ -321,7 +297,7 @@ public class iterativa extends javax.swing.JFrame {
                     int indiceFinNumero = obtenerIndiceFinalNumero(expresion, 4, indiceSeno);
                     String numeroStre = expresion.substring(indiceSeno + 4, indiceFinNumero);
                     double valor = Double.parseDouble(numeroStre);
-                    double seno = seno(valor, 1000);
+                    double seno = seno(valor);
                     String numeroNuevoStr = String.valueOf(seno * signo);
 
                     expresion = expresion.substring(0, indiceSeno) + numeroNuevoStr + expresion.substring(indiceFinNumero + 1);
@@ -341,7 +317,7 @@ public class iterativa extends javax.swing.JFrame {
                     int indiceFinNumero = obtenerIndiceFinalNumero(expresion, 4, indiceCos);
                     String numeroStre = expresion.substring(indiceCos + 4, indiceFinNumero);
                     double valor = Double.parseDouble(numeroStre);
-                    double coseno = coseno(valor * signo2, 10000);
+                    double coseno = coseno(valor * signo2);
                     String numeroNuevoStr = String.valueOf(coseno);
                     expresion = expresion.substring(0, indiceCos) + numeroNuevoStr + expresion.substring(indiceFinNumero + 1);
                     hayCambios = true;
@@ -358,7 +334,7 @@ public class iterativa extends javax.swing.JFrame {
                     int indiceFinNumero = obtenerIndiceFinalNumero(expresion, 4, indiceTan);
                     String numeroStre = expresion.substring(indiceTan + 4, indiceFinNumero);
                     double valor = Double.parseDouble(numeroStre);
-                    double tangente = division(seno(valor * signo3, 10000), coseno(valor, 10000));
+                    double tangente = division(seno(valor * signo3), coseno(valor));
                     String numeroNuevoStr = String.valueOf(tangente);
                     expresion = expresion.substring(0, indiceTan) + numeroNuevoStr + expresion.substring(indiceFinNumero + 1);
                     hayCambios = true;

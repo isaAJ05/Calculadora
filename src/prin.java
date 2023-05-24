@@ -30,13 +30,14 @@ public class prin extends javax.swing.JFrame {
         this.setResizable(false);
         prin thisFrame = this;
 
-        Timer timer = new Timer(5000, new ActionListener() {
+        Timer timer = new Timer(4000, new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 // Código para abrir el segundo frame aquí
                 PRINCIPAL2 i = new PRINCIPAL2();
-                thisFrame.setVisible(false); // Utilizar thisFrame en lugar de this
+                
                 i.setVisible(true);
+                thisFrame.setVisible(false); // Utilizar thisFrame en lugar de this
             }
         });
         timer.setRepeats(false);

@@ -21,25 +21,26 @@ public class recursiva2 extends javax.swing.JFrame {
 
     //VALIDACIONES
     //validar si ultimo caracter es un digito o no
-    public boolean caracternumerico(String cadena) {
+     public boolean caracternumerico(String cadena) {
         boolean c = false;
+        if (cadena.length()!=0){
         for (int i = 0; i < 10; i++) {
             String i2 = Integer.toString(i);
             if (cadena.substring(cadena.length() - 1).equals(i2)) {
                 return c = true;
             }
-        }
+        }}
         return c;
     }
 
-    //validar si hay parentesis 
-    public boolean validacion2(String cadena) {
-        char ultimoCaracter = cadena.charAt(cadena.length() - 1);
-        if (ultimoCaracter == '('||ultimoCaracter == ')') {
-            return true;
-        }
-        return false;
+    //validar si hay parentesis
+   public boolean validacion2(String cadena) {
+    String ultimoCaracter = cadena.substring(cadena.length() - 1);
+    if (ultimoCaracter.equals("(") || ultimoCaracter.equals(")")) {
+        return true;
     }
+    return false;
+}
 
     //Funcion para validar que se borre el operador si el usuario desea otro
     public boolean validacion(String cadena) {
@@ -98,7 +99,7 @@ public class recursiva2 extends javax.swing.JFrame {
     //validar que se sobreescriba un operador sobre otro
     public void validar3(String cadena) {
         if (acum.length() != 0 && acum.substring(acum.length() - 1) != "i") {
-            if (acum.substring(acum.length() - 1).equals("i")) {
+            if (acum.substring(acum.length() - 1).equals("i")||acum.substring(acum.length() - 1).equals("e")) {
 
             } else {
                 if (validacion2(acum) == false) {
@@ -248,27 +249,13 @@ public class recursiva2 extends javax.swing.JFrame {
 
         while (hayCambios == true) {
             hayCambios = false;
-
-            if (expresion.contains("!")) {//si hay un factorial se evalua enseguida
-                int indiceExclamacion = expresion.indexOf("!");
-                int indiceInicioNumero = obtenerIndiceInicioNumero(expresion, indiceExclamacion);
-                int indiceFinNumero = indiceExclamacion;
-
-                String numeroStr = expresion.substring(indiceInicioNumero, indiceFinNumero);
-                double numero = Double.parseDouble(numeroStr);
-
-                double factorial = factorial(numero);
-                expresion = expresion.replaceFirst(numeroStr + "!", String.valueOf(factorial));
-                hayCambios = true;
-                System.out.println("expresion: " + expresion);
-            }
-
             if (expresion.contains("pi")) {//si hay un numero pi se evalua enseguida
                 double valorPi = Pi(10);
                 expresion = expresion.replace("pi", String.valueOf(valorPi));
                 hayCambios = true;
                 System.out.println("expresion: " + expresion);
             }
+            
             if (expresion.contains("e") && !expresion.contains("sen")) {
                 int indiceEuler = expresion.indexOf("e");
                 int indiceSen = expresion.indexOf("sen");
@@ -285,6 +272,21 @@ public class recursiva2 extends javax.swing.JFrame {
 
                 }
             }
+            if (expresion.contains("!")) {//si hay un factorial se evalua enseguida
+                int indiceExclamacion = expresion.indexOf("!");
+                int indiceInicioNumero = obtenerIndiceInicioNumero(expresion, indiceExclamacion);
+                int indiceFinNumero = indiceExclamacion;
+
+                String numeroStr = expresion.substring(indiceInicioNumero, indiceFinNumero);
+                double numero = Double.parseDouble(numeroStr);
+
+                double factorial = factorial(numero);
+                expresion = expresion.replaceFirst(numeroStr + "!", String.valueOf(factorial));
+                hayCambios = true;
+                System.out.println("expresion: " + expresion);
+            }
+
+            
             if (expresion.contains("sen(")) {
                 int signo = 1;
 

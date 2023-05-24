@@ -32,9 +32,10 @@ public class recursiva2 extends javax.swing.JFrame {
         return c;
     }
 
+    //validar si hay parentesis 
     public boolean validacion2(String cadena) {
         char ultimoCaracter = cadena.charAt(cadena.length() - 1);
-        if (ultimoCaracter == '(') {
+        if (ultimoCaracter == '('||ultimoCaracter == ')') {
             return true;
         }
         return false;

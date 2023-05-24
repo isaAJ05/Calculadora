@@ -17,8 +17,9 @@ public class iterativa extends javax.swing.JFrame {
         acum = acum + caracter;
         res.setText(acum);
     }
+
     //VALIDACIONES
-    //Funcion para validar que el usuario no ingrese operadores de seguido sin antes poner un numero
+    //Funcion para validar que se borre el operador si el usuario desea otro
     public boolean validacion(String cadena) {
         if (cadena.length() == 0) {
             return false; // Manejar caso de cadena vacía
@@ -26,6 +27,7 @@ public class iterativa extends javax.swing.JFrame {
 
         char ultimoCaracter = cadena.charAt(cadena.length() - 1);
 
+        
         if (!Character.isDigit(ultimoCaracter)) {
             return false; // Manejar caso de carácter no numérico
         }
@@ -40,6 +42,7 @@ public class iterativa extends javax.swing.JFrame {
 
         return false;
     }
+
     //eliminar decimal .0
     public static String eliminarCero(String cadena) {
         int longitud = cadena.length();
@@ -48,11 +51,9 @@ public class iterativa extends javax.swing.JFrame {
         }
         return cadena;
     }
-    
+
     //OPERACIONES (HAY QUE VOLVER ALGUNAS ITERATIVAS SI SE PUEDE)
-
     //multiplicacion
-
     public static double multiplicacion(double a, double b) {
         double resultado = 0.0;
 
@@ -114,6 +115,7 @@ public class iterativa extends javax.swing.JFrame {
 
         return pi * 4.0;
     }
+
     //potencia
     public static double potencia(double base, double expo) {
         int exponente = (int) expo;
@@ -277,8 +279,7 @@ public class iterativa extends javax.swing.JFrame {
         return expresion;
     }
 
-    
-     //   Funciones para obtener indices   
+    //   Funciones para obtener indices   
     public static int obtenerIndiceInicioNumero(String expresion, int indiceExclamacion) {
         for (int i = indiceExclamacion - 1; i >= 0; i--) {
             char caracter = expresion.charAt(i);
@@ -301,6 +302,7 @@ public class iterativa extends javax.swing.JFrame {
     }
 //SUBRUTINA PRINCIPAL
 // Método para evaluar una expresión matemática
+
     public double evaluarExpresion(String expresion) {
 
         // Eliminar los espacios en blanco de la expresión
@@ -340,7 +342,7 @@ public class iterativa extends javax.swing.JFrame {
                     operaciones.setText("El divisor no puede ser cero");//VALIDACION
 
                 } else {
-                    error=0;
+                    error = 0;
                     operaciones.setText("");
                     return division(izquierda, derecha);
                 }
@@ -356,7 +358,7 @@ public class iterativa extends javax.swing.JFrame {
                     operaciones.setText("El divisor no puede ser cero");//VALIDACION    
                     error = 1;
                 } else {
-                    error=0;
+                    error = 0;
                     operaciones.setText("");
                     return divisionentera(izquierda, derecha);
                 }
@@ -919,38 +921,44 @@ public class iterativa extends javax.swing.JFrame {
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         if (validacion(acum) == false) {
-            //se verifica que no exista otro operador antes
-        } else {
-           aparecer("+");
+            acum = acum.substring(0, acum.length() - 1);
+            res.setText(acum);
+        } 
+            aparecer("+");
 
-        }
+        
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
         if (validacion(acum) == false) {
-
-        } else {
+            acum = acum.substring(0, acum.length() - 1);
+            res.setText(acum);
+        } 
             aparecer("/");
 
-        }
+        
     }//GEN-LAST:event_jButton14ActionPerformed
 
     private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
         if (validacion(acum) == false) {
-
-        } else {
+            acum = acum.substring(0, acum.length() - 1);
+            res.setText(acum);
+        } 
 
             aparecer("*");
 
-        }
+        
     }//GEN-LAST:event_jButton13ActionPerformed
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+        
         if (validacion(acum) == false) {
-        } else {
+            acum = acum.substring(0, acum.length() - 1);
+            res.setText(acum);
+        } 
             aparecer("-");
 
-        }
+        
     }//GEN-LAST:event_jButton8ActionPerformed
 
     private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
@@ -970,21 +978,21 @@ public class iterativa extends javax.swing.JFrame {
 
 
     }//GEN-LAST:event_jButton6ActionPerformed
-   
+
     private void jButton24ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton24ActionPerformed
         //PARA DAR RESULTADO
         if (p == true) {//validacion de parentesis
             aparecer(")");
             parentesis.setVisible(false);
         }
-            String comprobacion = comprobar(acum);
-            double resultado = evaluarExpresion(comprobacion);
-            if (error == 1) {//validacion de division entre 0
+        String comprobacion = comprobar(acum);
+        double resultado = evaluarExpresion(comprobacion);
+        if (error == 1) {//validacion de division entre 0
             res.setText(acum);
         } else {
             res.setText(eliminarCero(String.valueOf(resultado)));//resultado al usuario
             acum = eliminarCero(String.valueOf(resultado));//variable resultado
-            } 
+        }
     }//GEN-LAST:event_jButton24ActionPerformed
 
     private void jButton27ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton27ActionPerformed
@@ -1010,7 +1018,7 @@ public class iterativa extends javax.swing.JFrame {
     private void jButton28ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton28ActionPerformed
         aparecer("^");
     }//GEN-LAST:event_jButton28ActionPerformed
-    
+
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         aparecer("sen(");
         parentesis.setVisible(true);//visualizacion de parentesis para el usuario

@@ -19,6 +19,14 @@ public class iterativa extends javax.swing.JFrame {
     }
 
     //VALIDACIONES
+    public boolean validacion2(String cadena) {
+        char ultimoCaracter = cadena.charAt(cadena.length() - 1);
+        if (ultimoCaracter == '(') {
+            return true;
+        }
+        return false;
+    }
+
     //Funcion para validar que se borre el operador si el usuario desea otro
     public boolean validacion(String cadena) {
         if (cadena.length() == 0) {
@@ -27,9 +35,8 @@ public class iterativa extends javax.swing.JFrame {
 
         char ultimoCaracter = cadena.charAt(cadena.length() - 1);
 
-        
         if (!Character.isDigit(ultimoCaracter)) {
-            
+
             return false; // Manejar caso de carácter no numérico
         }
 
@@ -87,11 +94,8 @@ public class iterativa extends javax.swing.JFrame {
 
     //resta
     public static double resta(double numero1, double numero2) {
-        double resta = numero1;
-        for (double i = 0.0; i < numero2; i++) {
-            resta--;
-        }
-        return resta;
+
+        return numero1 - numero2;
     }
 
     //factorial
@@ -234,41 +238,61 @@ public class iterativa extends javax.swing.JFrame {
                     System.out.println("expresion: " + expresion);
                 }
             }
-            if (expresion.contains("sen(")) {//si hay una funcion seno se evalua enseguida
+            if (expresion.contains("sen(")) {
+                int signo = 1;
+
+                if (expresion.contains("sen(-")) {
+                    signo = -1;
+                    expresion = expresion.replace("-", "");
+                }
 
                 int indiceSeno = expresion.indexOf("sen(");
+
                 if (indiceSeno != -1) {
                     int indiceFinNumero = obtenerIndiceFinalNumero(expresion, 4, indiceSeno);
                     String numeroStre = expresion.substring(indiceSeno + 4, indiceFinNumero);
                     double valor = Double.parseDouble(numeroStre);
-                    double seno = seno(valor, 10);
+                    System.out.println("valor: " + valor);
+                    double seno = seno(valor * signo, 1000);
+                    System.out.println("lo que calcula la wea esa: " + seno);
                     String numeroNuevoStr = String.valueOf(seno);
 
                     expresion = expresion.substring(0, indiceSeno) + numeroNuevoStr + expresion.substring(indiceFinNumero + 1);
                     hayCambios = true;
                 }
             }
-            if (expresion.contains("cos(")) {//si hay una funcion coseno se evalua enseguida
 
+            if (expresion.contains("cos(")) {//si hay una funcion coseno se evalua enseguida
+                int signo2 = 1;
+                if (expresion.contains("cos(-")) {
+                    signo2 = -1;
+                    expresion = expresion.replace("-", "");
+                }
                 int indiceCos = expresion.indexOf("cos(");
                 if (indiceCos != -1) {
                     int indiceFinNumero = obtenerIndiceFinalNumero(expresion, 4, indiceCos);
                     String numeroStre = expresion.substring(indiceCos + 4, indiceFinNumero);
                     double valor = Double.parseDouble(numeroStre);
-                    double coseno = coseno(valor, 10000);
+                    System.out.println("valor: " + valor);
+                    double coseno = coseno(valor * signo2, 10000);
+                    System.out.println("lo que calcula la wea esa: " + coseno);
                     String numeroNuevoStr = String.valueOf(coseno);
                     expresion = expresion.substring(0, indiceCos) + numeroNuevoStr + expresion.substring(indiceFinNumero + 1);
                     hayCambios = true;
                 }
             }
             if (expresion.contains("tan(")) {//si hay una funcion tangente se evalua enseguida
-
+                int signo3 = 1;
+                if (expresion.contains("tan(-")) {
+                    signo3 = -1;
+                    expresion = expresion.replace("-", "");
+                }
                 int indiceTan = expresion.indexOf("tan(");
                 if (indiceTan != -1) {
                     int indiceFinNumero = obtenerIndiceFinalNumero(expresion, 4, indiceTan);
                     String numeroStre = expresion.substring(indiceTan + 4, indiceFinNumero);
                     double valor = Double.parseDouble(numeroStre);
-                    double tangente = division(seno(valor, 10000), coseno(valor, 10000));
+                    double tangente = division(seno(valor * signo3, 10000), coseno(valor, 10000));
                     String numeroNuevoStr = String.valueOf(tangente);
                     expresion = expresion.substring(0, indiceTan) + numeroNuevoStr + expresion.substring(indiceFinNumero + 1);
                     hayCambios = true;
@@ -921,45 +945,53 @@ public class iterativa extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton9ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-        if (validacion(acum) == false) {
-            acum = acum.substring(0, acum.length() - 1);
-            res.setText(acum);
-        } 
-            aparecer("+");
+        if (validacion2(acum) == false) {
+            if (validacion(acum) == false) {
+                acum = acum.substring(0, acum.length() - 1);
+                res.setText(acum);
+            }
+        }
+        aparecer("+");
 
-        
+
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
-        if (validacion(acum) == false) {
-            acum = acum.substring(0, acum.length() - 1);
-            res.setText(acum);
-        } 
-            aparecer("/");
+        if (validacion2(acum) == false) {
+            if (validacion(acum) == false) {
+                acum = acum.substring(0, acum.length() - 1);
+                res.setText(acum);
+            }
+        }
+        aparecer("/");
 
-        
+
     }//GEN-LAST:event_jButton14ActionPerformed
 
     private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
-        if (validacion(acum) == false) {
-            acum = acum.substring(0, acum.length() - 1);
-            res.setText(acum);
-        } 
+        if (validacion2(acum) == false) {
+            if (validacion(acum) == false) {
+                acum = acum.substring(0, acum.length() - 1);
+                res.setText(acum);
+            }
+        }
 
-            aparecer("*");
+        aparecer("*");
 
-        
+
     }//GEN-LAST:event_jButton13ActionPerformed
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
-        
-        if (validacion(acum) == false) {
-            acum = acum.substring(0, acum.length() - 1);
-            res.setText(acum);
-        } 
-            aparecer("-");
+        if (validacion2(acum) == false) {
+            if (validacion(acum) == false) {
+                acum = acum.substring(0, acum.length() - 1);
+                res.setText(acum);
+            }
+        }
 
-        
+        aparecer("-");
+
+
     }//GEN-LAST:event_jButton8ActionPerformed
 
     private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
@@ -997,14 +1029,32 @@ public class iterativa extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton24ActionPerformed
 
     private void jButton27ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton27ActionPerformed
+        if (validacion2(acum) == false) {
+            if (validacion(acum) == false) {
+                acum = acum.substring(0, acum.length() - 1);
+                res.setText(acum);
+            }
+        }
         aparecer("!");
     }//GEN-LAST:event_jButton27ActionPerformed
 
     private void jButton20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton20ActionPerformed
+        if (validacion2(acum) == false) {
+            if (validacion(acum) == false) {
+                acum = acum.substring(0, acum.length() - 1);
+                res.setText(acum);
+            }
+        }
         aparecer("%");
     }//GEN-LAST:event_jButton20ActionPerformed
 
     private void jButton19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton19ActionPerformed
+        if (validacion2(acum) == false) {
+            if (validacion(acum) == false) {
+                acum = acum.substring(0, acum.length() - 1);
+                res.setText(acum);
+            }
+        }
         aparecer("d");
     }//GEN-LAST:event_jButton19ActionPerformed
 
@@ -1013,10 +1063,22 @@ public class iterativa extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton18ActionPerformed
 
     private void jButton29ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton29ActionPerformed
+        if (validacion2(acum) == false) {
+            if (validacion(acum) == false) {
+                acum = acum.substring(0, acum.length() - 1);
+                res.setText(acum);
+            }
+        }
         aparecer("e^");
     }//GEN-LAST:event_jButton29ActionPerformed
 
     private void jButton28ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton28ActionPerformed
+        if (validacion2(acum) == false) {
+            if (validacion(acum) == false) {
+                acum = acum.substring(0, acum.length() - 1);
+                res.setText(acum);
+            }
+        }
         aparecer("^");
     }//GEN-LAST:event_jButton28ActionPerformed
 

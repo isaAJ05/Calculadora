@@ -22,13 +22,14 @@ public class iterativa extends javax.swing.JFrame {
     //Funcion para validar que se borre el operador si el usuario desea otro
     public boolean validacion(String cadena) {
         if (cadena.length() == 0) {
-            return false; // Manejar caso de cadena vacía
+            return true; // Manejar caso de cadena vacía
         }
 
         char ultimoCaracter = cadena.charAt(cadena.length() - 1);
 
         
         if (!Character.isDigit(ultimoCaracter)) {
+            
             return false; // Manejar caso de carácter no numérico
         }
 

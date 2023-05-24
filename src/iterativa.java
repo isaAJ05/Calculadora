@@ -61,7 +61,18 @@ public class iterativa extends javax.swing.JFrame {
 
         return false;
     }
-
+    //validar no escribir un numero despues de e o pi
+    public  void validar(String cadena) {
+        if (acum.length() == 0 ){
+           aparecer(cadena);
+            operaciones.setText("");
+       }else if (acum.substring(acum.length() - 1).equals("i") || acum.substring(acum.length() - 1).equals("e")) {
+            operaciones.setText("Opcion no valida");
+        } else {
+            aparecer(cadena);
+            operaciones.setText("");
+        }
+    }
     //eliminar decimal .0
     public static String eliminarCero(String cadena) {
         int longitud = cadena.length();
@@ -913,27 +924,11 @@ public class iterativa extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
-        if (acum.length() == 0 ){
-           aparecer("7");
-            operaciones.setText("");
-       }else if (acum.substring(acum.length() - 1).equals("i") || acum.substring(acum.length() - 1).equals("e")) {
-            operaciones.setText("Opcion no valida");
-        } else {
-            aparecer("7");
-            operaciones.setText("");
-        }
+        validar("7");
     }//GEN-LAST:event_jButton11ActionPerformed
 
     private void jButton15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton15ActionPerformed
-        if (acum.length() == 0 ){
-           aparecer("6");
-            operaciones.setText("");
-       }else if (acum.substring(acum.length() - 1).equals("i") || acum.substring(acum.length() - 1).equals("e")) {
-            operaciones.setText("Opcion no valida");
-        } else {
-            aparecer("6");
-            operaciones.setText("");
-        }
+        validar("6");
 
     }//GEN-LAST:event_jButton15ActionPerformed
 
@@ -957,100 +952,36 @@ public class iterativa extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton26ActionPerformed
 
     private void jButton23ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton23ActionPerformed
-        if (acum.length() == 0 ){
-           aparecer("1");
-            operaciones.setText("");
-       }else if (acum.substring(acum.length() - 1).equals("i") || acum.substring(acum.length() - 1).equals("e")) {
-            operaciones.setText("Opcion no valida");
-        } else {
-            aparecer("1");
-            operaciones.setText("");
-        }
+        validar("1");
     }//GEN-LAST:event_jButton23ActionPerformed
 
     private void jButton25ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton25ActionPerformed
-       if (acum.length() == 0 ){
-           aparecer("0");
-            operaciones.setText("");
-       }else if (acum.substring(acum.length() - 1).equals("i") || acum.substring(acum.length() - 1).equals("e")) {
-            operaciones.setText("Opcion no valida");
-        } else {
-            aparecer("0");
-            operaciones.setText("");
-        }
+       validar("0");
     }//GEN-LAST:event_jButton25ActionPerformed
 
     private void jButton22ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton22ActionPerformed
-        if (acum.length() == 0 ){
-           aparecer("2");
-            operaciones.setText("");
-       }else if (acum.substring(acum.length() - 1).equals("i") || acum.substring(acum.length() - 1).equals("e")) {
-            operaciones.setText("Opcion no valida");
-        } else {
-            aparecer("2");
-            operaciones.setText("");
-        }
+        validar("2");
     }//GEN-LAST:event_jButton22ActionPerformed
 
     private void jButton21ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton21ActionPerformed
-        if (acum.length() == 0 ){
-           aparecer("3");
-            operaciones.setText("");
-       }else if (acum.substring(acum.length() - 1).equals("i") || acum.substring(acum.length() - 1).equals("e")) {
-            operaciones.setText("Opcion no valida");
-        } else {
-            aparecer("3");
-            operaciones.setText("");
-        }
+        validar("3");
     }//GEN-LAST:event_jButton21ActionPerformed
 
     private void jButton17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton17ActionPerformed
-        if (acum.length() == 0 ){
-           aparecer("4");
-            operaciones.setText("");
-       }else if (acum.substring(acum.length() - 1).equals("i") || acum.substring(acum.length() - 1).equals("e")) {
-            operaciones.setText("Opcion no valida");
-        } else {
-            aparecer("4");
-            operaciones.setText("");
-        }
+        validar("4");
     }//GEN-LAST:event_jButton17ActionPerformed
 
     private void jButton16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton16ActionPerformed
-        if (acum.length() == 0 ){
-           aparecer("5");
-            operaciones.setText("");
-       }else if (acum.substring(acum.length() - 1).equals("i") || acum.substring(acum.length() - 1).equals("e")) {
-            operaciones.setText("Opcion no valida");
-        } else {
-            aparecer("5");
-            operaciones.setText("");
-        }
+        validar("5");
 
     }//GEN-LAST:event_jButton16ActionPerformed
 
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
-        if (acum.length() == 0 ){
-           aparecer("8");
-            operaciones.setText("");
-       }else if (acum.substring(acum.length() - 1).equals("i") || acum.substring(acum.length() - 1).equals("e")) {
-            operaciones.setText("Opcion no valida");
-        } else {
-            aparecer("8");
-            operaciones.setText("");
-        }
+        validar("8");
     }//GEN-LAST:event_jButton10ActionPerformed
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
-        if (acum.length() == 0 ){
-           aparecer("9");
-            operaciones.setText("");
-       }else if (acum.substring(acum.length() - 1).equals("i") || acum.substring(acum.length() - 1).equals("e")) {
-            operaciones.setText("Opcion no valida");
-        } else {
-            aparecer("9");
-            operaciones.setText("");
-        }
+        validar("9");
     }//GEN-LAST:event_jButton9ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
@@ -1272,27 +1203,11 @@ public class iterativa extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton19ActionPerformed
 
     private void jButton18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton18ActionPerformed
-        if (acum.length() == 0 ){
-           aparecer("e^");
-            operaciones.setText("");
-       }else if (acum.substring(acum.length() - 1).equals("i") || acum.substring(acum.length() - 1).equals("e")) {
-            operaciones.setText("Opcion no valida");
-        } else {
-            aparecer("pi");
-            operaciones.setText("");
-        }
+        validar("pi");
     }//GEN-LAST:event_jButton18ActionPerformed
 
     private void jButton29ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton29ActionPerformed
-       if (acum.length() == 0 ){
-           aparecer("e^");
-            operaciones.setText("");
-       }else if (acum.substring(acum.length() - 1).equals("i") || acum.substring(acum.length() - 1).equals("e")) {
-            operaciones.setText("Opcion no valida");
-        } else {
-            aparecer("e^");
-            operaciones.setText("");
-        }
+       validar("e^");
 
     }//GEN-LAST:event_jButton29ActionPerformed
 

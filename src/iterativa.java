@@ -61,18 +61,35 @@ public class iterativa extends javax.swing.JFrame {
 
         return false;
     }
+
     //validar no escribir un numero despues de e o pi
-    public  void validar(String cadena) {
-        if (acum.length() == 0 ){
-           aparecer(cadena);
+    public void validar(String cadena) {
+        if (acum.length() == 0) {
+            aparecer(cadena);
             operaciones.setText("");
-       }else if (acum.substring(acum.length() - 1).equals("i") || acum.substring(acum.length() - 1).equals("e")) {
+        } else if (acum.substring(acum.length() - 1).equals("i") || acum.substring(acum.length() - 1).equals("e")) {
             operaciones.setText("Opcion no valida");
         } else {
             aparecer(cadena);
             operaciones.setText("");
         }
     }
+
+    //validar no escribir sen, cos, tan despues de e o pi
+    public void validar2(String cadena) {
+        if (acum.length() == 0) {
+            aparecer(cadena);
+            parentesis.setVisible(true);//visualizacion de parentesis para el usuario
+            p = true;
+        } else if (acum.substring(acum.length() - 1).equals("i") || acum.substring(acum.length() - 1).equals("e")) {
+            operaciones.setText("Opcion no valida");
+        } else {
+            aparecer(cadena);
+            parentesis.setVisible(true);//visualizacion de parentesis para el usuario
+            p = true;
+        }
+    }
+
     //eliminar decimal .0
     public static String eliminarCero(String cadena) {
         int longitud = cadena.length();
@@ -933,14 +950,14 @@ public class iterativa extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton15ActionPerformed
 
     private void jButton26ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton26ActionPerformed
-        if (acum.length() == 0 ){
-           if (acum == "" || caracternumerico(acum) == false && acum.substring(acum.length() - 1) != "i") {
-            aparecer("0.");
-        } else {
-            aparecer(".");
-        }
+        if (acum.length() == 0) {
+            if (acum == "" || caracternumerico(acum) == false && acum.substring(acum.length() - 1) != "i") {
+                aparecer("0.");
+            } else {
+                aparecer(".");
+            }
             operaciones.setText("");
-       }else if (acum.substring(acum.length() - 1).equals("i") || acum.substring(acum.length() - 1).equals("e")) {
+        } else if (acum.substring(acum.length() - 1).equals("i") || acum.substring(acum.length() - 1).equals("e")) {
             operaciones.setText("Opcion no valida");
         } else if (acum == "" || caracternumerico(acum) == false && acum.substring(acum.length() - 1) != "i") {
             aparecer("0.");
@@ -956,7 +973,7 @@ public class iterativa extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton23ActionPerformed
 
     private void jButton25ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton25ActionPerformed
-       validar("0");
+        validar("0");
     }//GEN-LAST:event_jButton25ActionPerformed
 
     private void jButton22ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton22ActionPerformed
@@ -1207,7 +1224,7 @@ public class iterativa extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton18ActionPerformed
 
     private void jButton29ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton29ActionPerformed
-       validar("e^");
+        validar("e^");
 
     }//GEN-LAST:event_jButton29ActionPerformed
 
@@ -1236,21 +1253,15 @@ public class iterativa extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton28ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        aparecer("sen(");
-        parentesis.setVisible(true);//visualizacion de parentesis para el usuario
-        p = true;
+        validar2("sen(");
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        aparecer("cos(");
-        parentesis.setVisible(true);//visualizacion de parentesis para el usuario
-        p = true;
+        validar2("cos(");
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        aparecer("tan(");
-        parentesis.setVisible(true);//visualizacion de parentesis para el usuario
-        p = true;
+        validar2("tan(");
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void parentesisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_parentesisActionPerformed

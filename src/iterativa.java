@@ -20,17 +20,17 @@ public class iterativa extends javax.swing.JFrame {
 
     //VALIDACIONES
     //validar si ultimo caracter es un digito o no
-     public boolean caracternumerico(String cadena) {
-        boolean c=false;
+    public boolean caracternumerico(String cadena) {
+        boolean c = false;
         for (int i = 0; i < 10; i++) {
             String i2 = Integer.toString(i);
-            if (cadena.substring(cadena.length() - 1)== i2) {
-               return c=true;
+            if (cadena.substring(cadena.length() - 1) == i2) {
+                return c = true;
             }
         }
         return c;
     }
-    
+
     public boolean validacion2(String cadena) {
         char ultimoCaracter = cadena.charAt(cadena.length() - 1);
         if (ultimoCaracter == '(') {
@@ -133,15 +133,17 @@ public class iterativa extends javax.swing.JFrame {
     }
 
     //potencia
-    public static double potencia(double base, double expo) {
-        int exponente = (int) expo;
-        if (exponente == 0) {
-            return 1;
-        } else if (exponente > 0) {
-            return base * potencia(base, exponente - 1);
-        } else {
-            return 1 / (base * potencia(base, -exponente - 1));
+    public static double potencia(double base, double exponente) {
+        if (exponente < 0) {
+            throw new IllegalArgumentException("El exponente debe ser un número no negativo.");
         }
+
+        double resultado = 1.0;
+        for (int i = 0; i < exponente; i++) {
+            resultado *= base;
+        }
+
+        return resultado;
     }
 
     //euler elevado
@@ -233,20 +235,17 @@ public class iterativa extends javax.swing.JFrame {
                 expresion = expresion.replace("pi", String.valueOf(valorPi));
                 hayCambios = true;
                 System.out.println("expresion: " + expresion);
-            }
-            if (expresion.contains("e^")) {//si hay un numero exponencial  se evalua enseguida
-
-                int indiceEuler = expresion.indexOf("e^");
-                if (indiceEuler != -1) {
-                    int indiceFinNumero = obtenerIndiceFinalNumero(expresion, 2, indiceEuler);
-                    String numeroStre = expresion.substring(indiceEuler + 2, indiceFinNumero);
-                    double numeroexpo = Double.parseDouble(numeroStre);
-
-                    double exponencial = exponencial(numeroexpo, 10000);
-                    String numeroNuevoStr = String.valueOf(exponencial);
-                    expresion = expresion.substring(0, indiceEuler) + numeroNuevoStr + expresion.substring(indiceFinNumero);
-                    hayCambios = true;
-                    System.out.println("expresion: " + expresion);
+            } 
+            if (expresion.contains("e^")) {
+                if (expresion.contains("e")) {//si hay un numero exponencial  se evalua enseguida
+                    int indiceEuler = expresion.indexOf("e");
+                    if (indiceEuler != -1) {
+                        double exponencial = exponencial(1, 10000);
+                        expresion = expresion.replaceFirst("e", String.valueOf(exponencial));
+                        hayCambios = true;
+                        System.out.println("expresion: " + expresion);
+                    }
+                        
                 }
             }
             if (expresion.contains("sen(")) {
@@ -263,11 +262,11 @@ public class iterativa extends javax.swing.JFrame {
                     int indiceFinNumero = obtenerIndiceFinalNumero(expresion, 4, indiceSeno);
                     String numeroStre = expresion.substring(indiceSeno + 4, indiceFinNumero);
                     double valor = Double.parseDouble(numeroStre);
-                    double seno = seno(valor * signo, 1000);
-
-                    String numeroNuevoStr = String.valueOf(seno);
+                    double seno = seno(valor, 1000);
+                    String numeroNuevoStr = String.valueOf(seno * signo);
 
                     expresion = expresion.substring(0, indiceSeno) + numeroNuevoStr + expresion.substring(indiceFinNumero + 1);
+                    
                     hayCambios = true;
                 }
             }
@@ -333,8 +332,6 @@ public class iterativa extends javax.swing.JFrame {
         }
         return longitudExpresion;
     }
-//SUBRUTINA PRINCIPAL
-// Método para evaluar una expresión matemática
 
     public double evaluarExpresion(String expresion) {
 
@@ -432,6 +429,9 @@ public class iterativa extends javax.swing.JFrame {
     private static int obtenerPrecedencia(char operador) {
         if (operador == '+' || operador == '-') {
             return 1;
+        }else if (operador == '^' ) {
+            return 3;
+
         } else if (operador == '*' || operador == '/' || operador == '%' || operador == '^' || operador == 'd') {
             return 2;
 
@@ -919,13 +919,13 @@ public class iterativa extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton15ActionPerformed
 
     private void jButton26ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton26ActionPerformed
-        
-        if (acum == "" || caracternumerico(acum)==false) {
+
+        if (acum == "" || caracternumerico(acum) == false) {
             aparecer("0.");
-        }  else {
-                aparecer(".");
-            }
-        
+        } else {
+            aparecer(".");
+        }
+
 
     }//GEN-LAST:event_jButton26ActionPerformed
 
@@ -971,14 +971,17 @@ public class iterativa extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton9ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-        if (validacion2(acum) == false) {
-            if (validacion(acum) == false) {
-                acum = acum.substring(0, acum.length() - 1);
-                res.setText(acum);
+        if (acum.length() != 0) {
+            if (validacion2(acum) == false) {
+                if (validacion(acum) == false) {
+                    acum = acum.substring(0, acum.length() - 1);
+                    res.setText(acum);
+                }
             }
         }
-        String ultimoCaracter = acum.substring(acum.length() - 1);
-        if (ultimoCaracter.equals("(")) {
+        if (acum.length() == 0) {
+            operaciones.setText("Opcion no valida");
+        } else if (acum.substring(acum.length() - 1).equals("(")) {
             operaciones.setText("Opcion no valida");
         } else {
             aparecer("+");
@@ -989,14 +992,17 @@ public class iterativa extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
-        if (validacion2(acum) == false) {
-            if (validacion(acum) == false) {
-                acum = acum.substring(0, acum.length() - 1);
-                res.setText(acum);
+        if (acum.length() != 0) {
+            if (validacion2(acum) == false) {
+                if (validacion(acum) == false) {
+                    acum = acum.substring(0, acum.length() - 1);
+                    res.setText(acum);
+                }
             }
         }
-        String ultimoCaracter = acum.substring(acum.length() - 1);
-        if (ultimoCaracter.equals("(")) {
+        if (acum.length() == 0) {
+            operaciones.setText("Opcion no valida");
+        } else if (acum.substring(acum.length() - 1).equals("(")) {
             operaciones.setText("Opcion no valida");
         } else {
             aparecer("/");
@@ -1007,15 +1013,17 @@ public class iterativa extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton14ActionPerformed
 
     private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
-        if (validacion2(acum) == false) {
-            if (validacion(acum) == false) {
-                acum = acum.substring(0, acum.length() - 1);
-                res.setText(acum);
+        if (acum.length() != 0) {
+            if (validacion2(acum) == false) {
+                if (validacion(acum) == false) {
+                    acum = acum.substring(0, acum.length() - 1);
+                    res.setText(acum);
+                }
             }
         }
-
-        String ultimoCaracter = acum.substring(acum.length() - 1);
-        if (ultimoCaracter.equals("(")) {
+        if (acum.length() == 0) {
+            operaciones.setText("Opcion no valida");
+        } else if (acum.substring(acum.length() - 1).equals("(")) {
             operaciones.setText("Opcion no valida");
         } else {
             aparecer("*");
@@ -1026,14 +1034,21 @@ public class iterativa extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton13ActionPerformed
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
-        if (validacion2(acum) == false) {
-            if (validacion(acum) == false) {
-                acum = acum.substring(0, acum.length() - 1);
-                res.setText(acum);
+        if (acum.length() != 0) {
+            if (validacion2(acum) == false) {
+                if (validacion(acum) == false) {
+                    acum = acum.substring(0, acum.length() - 1);
+                    res.setText(acum);
+                }
             }
         }
-
-        aparecer("-");
+        if (acum.length() == 0) {
+            aparecer("-");
+            operaciones.setText("");
+        } else {
+            aparecer("-");
+            operaciones.setText("");
+        }
 
 
     }//GEN-LAST:event_jButton8ActionPerformed
@@ -1044,6 +1059,8 @@ public class iterativa extends javax.swing.JFrame {
             String ultimoCaracter = acum.substring(acum.length() - 1);
             if (ultimoCaracter.equals("(")) {
                 acum = acum.substring(0, acum.length() - 4);
+            } else if (ultimoCaracter.equals("i")) {
+                acum = acum.substring(0, acum.length() - 2);
             } else {
                 acum = acum.substring(0, acum.length() - 1);
             }
@@ -1079,14 +1096,17 @@ public class iterativa extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton24ActionPerformed
 
     private void jButton27ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton27ActionPerformed
-        if (validacion2(acum) == false) {
-            if (validacion(acum) == false) {
-                acum = acum.substring(0, acum.length() - 1);
-                res.setText(acum);
+        if (acum.length() != 0) {
+            if (validacion2(acum) == false) {
+                if (validacion(acum) == false) {
+                    acum = acum.substring(0, acum.length() - 1);
+                    res.setText(acum);
+                }
             }
         }
-        String ultimoCaracter = acum.substring(acum.length() - 1);
-        if (ultimoCaracter.equals("(")) {
+        if (acum.length() == 0) {
+            operaciones.setText("Opcion no valida");
+        } else if (acum.substring(acum.length() - 1).equals("(")) {
             operaciones.setText("Opcion no valida");
         } else {
             aparecer("!");
@@ -1095,14 +1115,17 @@ public class iterativa extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton27ActionPerformed
 
     private void jButton20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton20ActionPerformed
-        if (validacion2(acum) == false) {
-            if (validacion(acum) == false) {
-                acum = acum.substring(0, acum.length() - 1);
-                res.setText(acum);
+        if (acum.length() != 0) {
+            if (validacion2(acum) == false) {
+                if (validacion(acum) == false) {
+                    acum = acum.substring(0, acum.length() - 1);
+                    res.setText(acum);
+                }
             }
         }
-        String ultimoCaracter = acum.substring(acum.length() - 1);
-        if (ultimoCaracter.equals("(")) {
+        if (acum.length() == 0) {
+            operaciones.setText("Opcion no valida");
+        } else if (acum.substring(acum.length() - 1).equals("(")) {
             operaciones.setText("Opcion no valida");
         } else {
             aparecer("%");
@@ -1111,14 +1134,17 @@ public class iterativa extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton20ActionPerformed
 
     private void jButton19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton19ActionPerformed
-        if (validacion2(acum) == false) {
-            if (validacion(acum) == false) {
-                acum = acum.substring(0, acum.length() - 1);
-                res.setText(acum);
+        if (acum.length() != 0) {
+            if (validacion2(acum) == false) {
+                if (validacion(acum) == false) {
+                    acum = acum.substring(0, acum.length() - 1);
+                    res.setText(acum);
+                }
             }
         }
-        String ultimoCaracter = acum.substring(acum.length() - 1);
-        if (ultimoCaracter.equals("(")) {
+        if (acum.length() == 0) {
+            operaciones.setText("Opcion no valida");
+        } else if (acum.substring(acum.length() - 1).equals("(")) {
             operaciones.setText("Opcion no valida");
         } else {
             aparecer("d");
@@ -1131,23 +1157,26 @@ public class iterativa extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton18ActionPerformed
 
     private void jButton29ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton29ActionPerformed
-        if (validacion2(acum) == false) {
-            if (validacion(acum) == false) {
-                acum = acum.substring(0, acum.length() - 1);
-                res.setText(acum);
-            }
-        }
         aparecer("e^");
+        operaciones.setText("");
+
     }//GEN-LAST:event_jButton29ActionPerformed
 
     private void jButton28ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton28ActionPerformed
-        if (validacion2(acum) == false) {
-            if (validacion(acum) == false) {
-                acum = acum.substring(0, acum.length() - 1);
-                res.setText(acum);
+        if (acum.length() != 0) {
+            if (validacion2(acum) == false) {
+                if (validacion(acum) == false) {
+                    acum = acum.substring(0, acum.length() - 1);
+                    res.setText(acum);
+                }
             }
         }
-        aparecer("^");
+        if (acum.length() == 0) {
+            operaciones.setText("Opcion no valida");
+        } else {
+            aparecer("^");
+            operaciones.setText("");
+        }
     }//GEN-LAST:event_jButton28ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed

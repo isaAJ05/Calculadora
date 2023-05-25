@@ -495,34 +495,34 @@ public class recursiva2 extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
-        jButton7 = new javax.swing.JButton();
-        jButton8 = new javax.swing.JButton();
-        jButton9 = new javax.swing.JButton();
-        jButton10 = new javax.swing.JButton();
-        jButton11 = new javax.swing.JButton();
-        jButton12 = new javax.swing.JButton();
-        jButton13 = new javax.swing.JButton();
-        jButton14 = new javax.swing.JButton();
-        jButton15 = new javax.swing.JButton();
-        jButton16 = new javax.swing.JButton();
-        jButton17 = new javax.swing.JButton();
-        jButton18 = new javax.swing.JButton();
-        jButton19 = new javax.swing.JButton();
-        jButton20 = new javax.swing.JButton();
-        jButton21 = new javax.swing.JButton();
-        jButton22 = new javax.swing.JButton();
-        jButton23 = new javax.swing.JButton();
-        jButton24 = new javax.swing.JButton();
-        jButton25 = new javax.swing.JButton();
-        jButton26 = new javax.swing.JButton();
-        jButton27 = new javax.swing.JButton();
-        jButton28 = new javax.swing.JButton();
-        jButton29 = new javax.swing.JButton();
+        CombBTN = new javax.swing.JButton();
+        SenBTN = new javax.swing.JButton();
+        CosBTN = new javax.swing.JButton();
+        TanBTN = new javax.swing.JButton();
+        ACBTN = new javax.swing.JButton();
+        SumaBTN = new javax.swing.JButton();
+        RestaBTN = new javax.swing.JButton();
+        BTN9 = new javax.swing.JButton();
+        BTN8 = new javax.swing.JButton();
+        BTN7 = new javax.swing.JButton();
+        BorraUnaBTN = new javax.swing.JButton();
+        MultipBTN = new javax.swing.JButton();
+        DivisionBTN = new javax.swing.JButton();
+        BTN6 = new javax.swing.JButton();
+        BTN5 = new javax.swing.JButton();
+        BTN4 = new javax.swing.JButton();
+        PiBTN = new javax.swing.JButton();
+        divBTN = new javax.swing.JButton();
+        ModBTN = new javax.swing.JButton();
+        BTN3 = new javax.swing.JButton();
+        BTN2 = new javax.swing.JButton();
+        BTN1 = new javax.swing.JButton();
+        igualBTN = new javax.swing.JButton();
+        BTN0 = new javax.swing.JButton();
+        PuntoBTN = new javax.swing.JButton();
+        FactorialBTN = new javax.swing.JButton();
+        PotenciaBTN = new javax.swing.JButton();
+        EulerBTN = new javax.swing.JButton();
         operaciones = new javax.swing.JLabel();
         parentesis = new javax.swing.JButton();
         res = new javax.swing.JLabel();
@@ -537,194 +537,194 @@ public class recursiva2 extends javax.swing.JFrame {
             }
         });
 
-        jButton2.setContentAreaFilled(false);
+        CombBTN.setContentAreaFilled(false);
 
-        jButton3.setContentAreaFilled(false);
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        SenBTN.setContentAreaFilled(false);
+        SenBTN.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                SenBTNActionPerformed(evt);
             }
         });
 
-        jButton4.setContentAreaFilled(false);
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        CosBTN.setContentAreaFilled(false);
+        CosBTN.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                CosBTNActionPerformed(evt);
             }
         });
 
-        jButton5.setContentAreaFilled(false);
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
+        TanBTN.setContentAreaFilled(false);
+        TanBTN.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
+                TanBTNActionPerformed(evt);
             }
         });
 
-        jButton6.setContentAreaFilled(false);
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
+        ACBTN.setContentAreaFilled(false);
+        ACBTN.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
+                ACBTNActionPerformed(evt);
             }
         });
 
-        jButton7.setContentAreaFilled(false);
-        jButton7.addActionListener(new java.awt.event.ActionListener() {
+        SumaBTN.setContentAreaFilled(false);
+        SumaBTN.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton7ActionPerformed(evt);
+                SumaBTNActionPerformed(evt);
             }
         });
 
-        jButton8.setContentAreaFilled(false);
-        jButton8.addActionListener(new java.awt.event.ActionListener() {
+        RestaBTN.setContentAreaFilled(false);
+        RestaBTN.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton8ActionPerformed(evt);
+                RestaBTNActionPerformed(evt);
             }
         });
 
-        jButton9.setContentAreaFilled(false);
-        jButton9.addActionListener(new java.awt.event.ActionListener() {
+        BTN9.setContentAreaFilled(false);
+        BTN9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton9ActionPerformed(evt);
+                BTN9ActionPerformed(evt);
             }
         });
 
-        jButton10.setContentAreaFilled(false);
-        jButton10.addActionListener(new java.awt.event.ActionListener() {
+        BTN8.setContentAreaFilled(false);
+        BTN8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton10ActionPerformed(evt);
+                BTN8ActionPerformed(evt);
             }
         });
 
-        jButton11.setContentAreaFilled(false);
-        jButton11.addActionListener(new java.awt.event.ActionListener() {
+        BTN7.setContentAreaFilled(false);
+        BTN7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton11ActionPerformed(evt);
+                BTN7ActionPerformed(evt);
             }
         });
 
-        jButton12.setContentAreaFilled(false);
-        jButton12.addActionListener(new java.awt.event.ActionListener() {
+        BorraUnaBTN.setContentAreaFilled(false);
+        BorraUnaBTN.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton12ActionPerformed(evt);
+                BorraUnaBTNActionPerformed(evt);
             }
         });
 
-        jButton13.setContentAreaFilled(false);
-        jButton13.addActionListener(new java.awt.event.ActionListener() {
+        MultipBTN.setContentAreaFilled(false);
+        MultipBTN.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton13ActionPerformed(evt);
+                MultipBTNActionPerformed(evt);
             }
         });
 
-        jButton14.setContentAreaFilled(false);
-        jButton14.addActionListener(new java.awt.event.ActionListener() {
+        DivisionBTN.setContentAreaFilled(false);
+        DivisionBTN.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton14ActionPerformed(evt);
+                DivisionBTNActionPerformed(evt);
             }
         });
 
-        jButton15.setContentAreaFilled(false);
-        jButton15.addActionListener(new java.awt.event.ActionListener() {
+        BTN6.setContentAreaFilled(false);
+        BTN6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton15ActionPerformed(evt);
+                BTN6ActionPerformed(evt);
             }
         });
 
-        jButton16.setContentAreaFilled(false);
-        jButton16.addActionListener(new java.awt.event.ActionListener() {
+        BTN5.setContentAreaFilled(false);
+        BTN5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton16ActionPerformed(evt);
+                BTN5ActionPerformed(evt);
             }
         });
 
-        jButton17.setContentAreaFilled(false);
-        jButton17.addActionListener(new java.awt.event.ActionListener() {
+        BTN4.setContentAreaFilled(false);
+        BTN4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton17ActionPerformed(evt);
+                BTN4ActionPerformed(evt);
             }
         });
 
-        jButton18.setContentAreaFilled(false);
-        jButton18.addActionListener(new java.awt.event.ActionListener() {
+        PiBTN.setContentAreaFilled(false);
+        PiBTN.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton18ActionPerformed(evt);
+                PiBTNActionPerformed(evt);
             }
         });
 
-        jButton19.setContentAreaFilled(false);
-        jButton19.addActionListener(new java.awt.event.ActionListener() {
+        divBTN.setContentAreaFilled(false);
+        divBTN.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton19ActionPerformed(evt);
+                divBTNActionPerformed(evt);
             }
         });
 
-        jButton20.setContentAreaFilled(false);
-        jButton20.addActionListener(new java.awt.event.ActionListener() {
+        ModBTN.setContentAreaFilled(false);
+        ModBTN.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton20ActionPerformed(evt);
+                ModBTNActionPerformed(evt);
             }
         });
 
-        jButton21.setContentAreaFilled(false);
-        jButton21.addActionListener(new java.awt.event.ActionListener() {
+        BTN3.setContentAreaFilled(false);
+        BTN3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton21ActionPerformed(evt);
+                BTN3ActionPerformed(evt);
             }
         });
 
-        jButton22.setContentAreaFilled(false);
-        jButton22.addActionListener(new java.awt.event.ActionListener() {
+        BTN2.setContentAreaFilled(false);
+        BTN2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton22ActionPerformed(evt);
+                BTN2ActionPerformed(evt);
             }
         });
 
-        jButton23.setContentAreaFilled(false);
-        jButton23.addActionListener(new java.awt.event.ActionListener() {
+        BTN1.setContentAreaFilled(false);
+        BTN1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton23ActionPerformed(evt);
+                BTN1ActionPerformed(evt);
             }
         });
 
-        jButton24.setContentAreaFilled(false);
-        jButton24.addActionListener(new java.awt.event.ActionListener() {
+        igualBTN.setContentAreaFilled(false);
+        igualBTN.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton24ActionPerformed(evt);
+                igualBTNActionPerformed(evt);
             }
         });
 
-        jButton25.setContentAreaFilled(false);
-        jButton25.addActionListener(new java.awt.event.ActionListener() {
+        BTN0.setContentAreaFilled(false);
+        BTN0.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton25ActionPerformed(evt);
+                BTN0ActionPerformed(evt);
             }
         });
 
-        jButton26.setContentAreaFilled(false);
-        jButton26.addActionListener(new java.awt.event.ActionListener() {
+        PuntoBTN.setContentAreaFilled(false);
+        PuntoBTN.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton26ActionPerformed(evt);
+                PuntoBTNActionPerformed(evt);
             }
         });
 
-        jButton27.setContentAreaFilled(false);
-        jButton27.addActionListener(new java.awt.event.ActionListener() {
+        FactorialBTN.setContentAreaFilled(false);
+        FactorialBTN.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton27ActionPerformed(evt);
+                FactorialBTNActionPerformed(evt);
             }
         });
 
-        jButton28.setContentAreaFilled(false);
-        jButton28.addActionListener(new java.awt.event.ActionListener() {
+        PotenciaBTN.setContentAreaFilled(false);
+        PotenciaBTN.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton28ActionPerformed(evt);
+                PotenciaBTNActionPerformed(evt);
             }
         });
 
-        jButton29.setContentAreaFilled(false);
-        jButton29.addActionListener(new java.awt.event.ActionListener() {
+        EulerBTN.setContentAreaFilled(false);
+        EulerBTN.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton29ActionPerformed(evt);
+                EulerBTNActionPerformed(evt);
             }
         });
 
@@ -755,85 +755,85 @@ public class recursiva2 extends javax.swing.JFrame {
                 .addComponent(res, javax.swing.GroupLayout.PREFERRED_SIZE, 670, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(250, 250, 250)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(CombBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(150, 150, 150)
-                .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(SumaBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(130, 130, 130)
-                .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(BTN9, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(117, 117, 117)
-                .addComponent(jButton11, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(BTN7, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(150, 150, 150)
-                .addComponent(jButton13, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(MultipBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(10, 10, 10)
-                .addComponent(jButton14, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(DivisionBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(120, 120, 120)
-                .addComponent(jButton16, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(BTN5, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(361, 361, 361)
-                .addComponent(jButton21, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(BTN3, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(9, 9, 9)
-                .addComponent(jButton22, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(BTN2, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(150, 150, 150)
-                .addComponent(jButton28, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(PotenciaBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(10, 10, 10)
-                .addComponent(jButton27, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(FactorialBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(215, 215, 215)
-                .addComponent(jButton24, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(igualBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(470, 470, 470)
-                .addComponent(jButton25, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(BTN0, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(40, 40, 40)
-                .addComponent(jButton29, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(EulerBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(251, 251, 251)
-                .addComponent(jButton20, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(ModBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(200, 200, 200)
                 .addComponent(parentesis, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(565, 565, 565)
-                .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(TanBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(360, 360, 360)
-                .addComponent(jButton15, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(BTN6, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addComponent(jLabel1)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(40, 40, 40)
-                .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(ACBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(470, 470, 470)
-                .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(BTN8, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(465, 465, 465)
-                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(CosBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(260, 260, 260)
-                .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(RestaBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(564, 564, 564)
-                .addComponent(jButton23, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(BTN1, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(360, 360, 360)
-                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(SenBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(141, 141, 141)
-                .addComponent(jButton19, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(divBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(40, 40, 40)
-                .addComponent(jButton12, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(BorraUnaBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(40, 40, 40)
-                .addComponent(jButton18, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(PiBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(571, 571, 571)
-                .addComponent(jButton17, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(BTN4, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(360, 360, 360)
-                .addComponent(jButton26, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(PuntoBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -847,82 +847,82 @@ public class recursiva2 extends javax.swing.JFrame {
                 .addGap(60, 60, 60)
                 .addComponent(res, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(50, 50, 50)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(CombBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(20, 20, 20)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton11, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(SumaBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(BTN9, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(BTN7, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(10, 10, 10)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton13, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton14, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton16, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(MultipBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(DivisionBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(BTN5, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(10, 10, 10)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(3, 3, 3)
-                        .addComponent(jButton21, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jButton22, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(BTN3, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(BTN2, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(7, 7, 7)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton28, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton27, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(PotenciaBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(FactorialBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(1, 1, 1)
-                        .addComponent(jButton24, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addComponent(igualBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE))))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(493, 493, 493)
-                .addComponent(jButton25, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(BTN0, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(490, 490, 490)
-                .addComponent(jButton29, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(EulerBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(420, 420, 420)
-                .addComponent(jButton20, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(ModBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(200, 200, 200)
                 .addComponent(parentesis, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(213, 213, 213)
-                .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(TanBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(340, 340, 340)
-                .addComponent(jButton15, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(BTN6, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addComponent(jLabel1)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(270, 270, 270)
-                .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(ACBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(273, 273, 273)
-                .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(BTN8, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(213, 213, 213)
-                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(CosBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(270, 270, 270)
-                .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(RestaBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(420, 420, 420)
-                .addComponent(jButton23, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(BTN1, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(210, 210, 210)
-                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(SenBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(420, 420, 420)
-                .addComponent(jButton19, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(divBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(340, 340, 340)
-                .addComponent(jButton12, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(BorraUnaBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(420, 420, 420)
-                .addComponent(jButton18, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(PiBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(343, 343, 343)
-                .addComponent(jButton17, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(BTN4, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(493, 493, 493)
-                .addComponent(jButton26, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(PuntoBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -947,32 +947,32 @@ public class recursiva2 extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void SenBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SenBTNActionPerformed
         validar2("sen(");
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_SenBTNActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    private void CosBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CosBTNActionPerformed
         validar2("cos(");
-    }//GEN-LAST:event_jButton4ActionPerformed
+    }//GEN-LAST:event_CosBTNActionPerformed
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+    private void TanBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TanBTNActionPerformed
         validar2("tan(");
-    }//GEN-LAST:event_jButton5ActionPerformed
+    }//GEN-LAST:event_TanBTNActionPerformed
 
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+    private void ACBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ACBTNActionPerformed
         //PARA RESETEAR
         acum = "";
         res.setText("");
         operaciones.setText("");
 
-    }//GEN-LAST:event_jButton6ActionPerformed
+    }//GEN-LAST:event_ACBTNActionPerformed
 
-    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+    private void SumaBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SumaBTNActionPerformed
         validar3("+");
 
-    }//GEN-LAST:event_jButton7ActionPerformed
+    }//GEN-LAST:event_SumaBTNActionPerformed
 
-    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+    private void RestaBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RestaBTNActionPerformed
         if (acum.length() != 0) {
             if (validacion2(acum) == false) {
                 if (validacion(acum) == false) {
@@ -989,21 +989,21 @@ public class recursiva2 extends javax.swing.JFrame {
             operaciones.setText("");
         }
 
-    }//GEN-LAST:event_jButton8ActionPerformed
+    }//GEN-LAST:event_RestaBTNActionPerformed
 
-    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
+    private void BTN9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTN9ActionPerformed
         validar("9");
-    }//GEN-LAST:event_jButton9ActionPerformed
+    }//GEN-LAST:event_BTN9ActionPerformed
 
-    private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
+    private void BTN8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTN8ActionPerformed
         validar("8");
-    }//GEN-LAST:event_jButton10ActionPerformed
+    }//GEN-LAST:event_BTN8ActionPerformed
 
-    private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
+    private void BTN7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTN7ActionPerformed
         validar("7");
-    }//GEN-LAST:event_jButton11ActionPerformed
+    }//GEN-LAST:event_BTN7ActionPerformed
 
-    private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
+    private void BorraUnaBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BorraUnaBTNActionPerformed
         //PARA BORRAR
         if (acum != "") {
             String ultimoCaracter = acum.substring(acum.length() - 1);
@@ -1017,58 +1017,58 @@ public class recursiva2 extends javax.swing.JFrame {
 
             res.setText(acum);
         }
-    }//GEN-LAST:event_jButton12ActionPerformed
+    }//GEN-LAST:event_BorraUnaBTNActionPerformed
 
-    private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
+    private void MultipBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MultipBTNActionPerformed
         validar3("*");
 
-    }//GEN-LAST:event_jButton13ActionPerformed
+    }//GEN-LAST:event_MultipBTNActionPerformed
 
-    private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
+    private void DivisionBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DivisionBTNActionPerformed
         validar3("/");
 
-    }//GEN-LAST:event_jButton14ActionPerformed
+    }//GEN-LAST:event_DivisionBTNActionPerformed
 
-    private void jButton15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton15ActionPerformed
+    private void BTN6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTN6ActionPerformed
         validar("6");
-    }//GEN-LAST:event_jButton15ActionPerformed
+    }//GEN-LAST:event_BTN6ActionPerformed
 
-    private void jButton16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton16ActionPerformed
+    private void BTN5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTN5ActionPerformed
         validar("5");
-    }//GEN-LAST:event_jButton16ActionPerformed
+    }//GEN-LAST:event_BTN5ActionPerformed
 
-    private void jButton17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton17ActionPerformed
+    private void BTN4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTN4ActionPerformed
         validar("4");
-    }//GEN-LAST:event_jButton17ActionPerformed
+    }//GEN-LAST:event_BTN4ActionPerformed
 
-    private void jButton18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton18ActionPerformed
+    private void PiBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PiBTNActionPerformed
         if (caracternumerico(acum)==true){
             validar("*pi");
         }else{
             validar("pi");}
-    }//GEN-LAST:event_jButton18ActionPerformed
+    }//GEN-LAST:event_PiBTNActionPerformed
 
-    private void jButton19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton19ActionPerformed
+    private void divBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_divBTNActionPerformed
         validar3("d");
-    }//GEN-LAST:event_jButton19ActionPerformed
+    }//GEN-LAST:event_divBTNActionPerformed
 
-    private void jButton20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton20ActionPerformed
+    private void ModBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ModBTNActionPerformed
         validar3("%");
-    }//GEN-LAST:event_jButton20ActionPerformed
+    }//GEN-LAST:event_ModBTNActionPerformed
 
-    private void jButton21ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton21ActionPerformed
+    private void BTN3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTN3ActionPerformed
         validar("3");
-    }//GEN-LAST:event_jButton21ActionPerformed
+    }//GEN-LAST:event_BTN3ActionPerformed
 
-    private void jButton22ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton22ActionPerformed
+    private void BTN2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTN2ActionPerformed
         validar("2");
-    }//GEN-LAST:event_jButton22ActionPerformed
+    }//GEN-LAST:event_BTN2ActionPerformed
 
-    private void jButton23ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton23ActionPerformed
+    private void BTN1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTN1ActionPerformed
         validar("1");
-    }//GEN-LAST:event_jButton23ActionPerformed
+    }//GEN-LAST:event_BTN1ActionPerformed
 
-    private void jButton24ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton24ActionPerformed
+    private void igualBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_igualBTNActionPerformed
         //PARA DAR RESULTADO
         if (p == true) {//validacion de parentesis
             aparecer(")");
@@ -1082,13 +1082,13 @@ public class recursiva2 extends javax.swing.JFrame {
             res.setText(eliminarCero(String.valueOf(resultado)));//resultado al usuario
             acum = eliminarCero(String.valueOf(resultado));//variable resultado
         }
-    }//GEN-LAST:event_jButton24ActionPerformed
+    }//GEN-LAST:event_igualBTNActionPerformed
 
-    private void jButton25ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton25ActionPerformed
+    private void BTN0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTN0ActionPerformed
         validar("0");
-    }//GEN-LAST:event_jButton25ActionPerformed
+    }//GEN-LAST:event_BTN0ActionPerformed
 
-    private void jButton26ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton26ActionPerformed
+    private void PuntoBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PuntoBTNActionPerformed
         if (acum.length() == 0) {
             if (acum == "" || caracternumerico(acum) == false && acum.substring(acum.length() - 1) != "i") {
                 aparecer("0.");
@@ -1104,22 +1104,22 @@ public class recursiva2 extends javax.swing.JFrame {
             aparecer(".");
         }
 
-    }//GEN-LAST:event_jButton26ActionPerformed
+    }//GEN-LAST:event_PuntoBTNActionPerformed
 
-    private void jButton27ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton27ActionPerformed
+    private void FactorialBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FactorialBTNActionPerformed
         validar3("!");
-    }//GEN-LAST:event_jButton27ActionPerformed
+    }//GEN-LAST:event_FactorialBTNActionPerformed
 
-    private void jButton28ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton28ActionPerformed
+    private void PotenciaBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PotenciaBTNActionPerformed
         validar3("^");
-    }//GEN-LAST:event_jButton28ActionPerformed
+    }//GEN-LAST:event_PotenciaBTNActionPerformed
 
-    private void jButton29ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton29ActionPerformed
+    private void EulerBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EulerBTNActionPerformed
         if (caracternumerico(acum)==true){
             validar("*e^");
         }else{validar("e^");
         }
-    }//GEN-LAST:event_jButton29ActionPerformed
+    }//GEN-LAST:event_EulerBTNActionPerformed
 
     private void parentesisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_parentesisActionPerformed
         aparecer(")");
@@ -1160,35 +1160,35 @@ public class recursiva2 extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton ACBTN;
+    private javax.swing.JButton BTN0;
+    private javax.swing.JButton BTN1;
+    private javax.swing.JButton BTN2;
+    private javax.swing.JButton BTN3;
+    private javax.swing.JButton BTN4;
+    private javax.swing.JButton BTN5;
+    private javax.swing.JButton BTN6;
+    private javax.swing.JButton BTN7;
+    private javax.swing.JButton BTN8;
+    private javax.swing.JButton BTN9;
+    private javax.swing.JButton BorraUnaBTN;
+    private javax.swing.JButton CombBTN;
+    private javax.swing.JButton CosBTN;
+    private javax.swing.JButton DivisionBTN;
+    private javax.swing.JButton EulerBTN;
+    private javax.swing.JButton FactorialBTN;
+    private javax.swing.JButton ModBTN;
+    private javax.swing.JButton MultipBTN;
+    private javax.swing.JButton PiBTN;
+    private javax.swing.JButton PotenciaBTN;
+    private javax.swing.JButton PuntoBTN;
+    private javax.swing.JButton RestaBTN;
+    private javax.swing.JButton SenBTN;
+    private javax.swing.JButton SumaBTN;
+    private javax.swing.JButton TanBTN;
+    private javax.swing.JButton divBTN;
+    private javax.swing.JButton igualBTN;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton10;
-    private javax.swing.JButton jButton11;
-    private javax.swing.JButton jButton12;
-    private javax.swing.JButton jButton13;
-    private javax.swing.JButton jButton14;
-    private javax.swing.JButton jButton15;
-    private javax.swing.JButton jButton16;
-    private javax.swing.JButton jButton17;
-    private javax.swing.JButton jButton18;
-    private javax.swing.JButton jButton19;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton20;
-    private javax.swing.JButton jButton21;
-    private javax.swing.JButton jButton22;
-    private javax.swing.JButton jButton23;
-    private javax.swing.JButton jButton24;
-    private javax.swing.JButton jButton25;
-    private javax.swing.JButton jButton26;
-    private javax.swing.JButton jButton27;
-    private javax.swing.JButton jButton28;
-    private javax.swing.JButton jButton29;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton8;
-    private javax.swing.JButton jButton9;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel operaciones;

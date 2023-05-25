@@ -5,6 +5,7 @@ import java.net.URL;
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
+import javax.swing.ImageIcon;
 import javax.swing.Timer;
 
 public class prin extends javax.swing.JFrame {
@@ -25,6 +26,8 @@ public class prin extends javax.swing.JFrame {
 
     public prin() {
         initComponents();
+         setIconImage(new ImageIcon(getClass().getResource("imagenes/liarobot.png")).getImage());
+         this.setTitle("CALCULADORA");
         this.setLocationRelativeTo(null);//centrar ventana
         // Guardar referencia al objeto actual
         this.setResizable(false);

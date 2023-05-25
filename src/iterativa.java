@@ -1,4 +1,10 @@
 
+import java.awt.Font;
+import java.awt.FontFormatException;
+import java.awt.GraphicsEnvironment;
+import java.io.IOException;
+import java.io.InputStream;
+import javax.swing.ImageIcon;
 import javax.swing.SwingConstants;
 
 public class iterativa extends javax.swing.JFrame {
@@ -13,6 +19,7 @@ public class iterativa extends javax.swing.JFrame {
 
     //Subrutina para que aparezca el numero en el label de resultado
     public void aparecer(String caracter) {
+
         res.setHorizontalAlignment(SwingConstants.RIGHT);
         acum = acum + caracter;
         res.setText(acum);
@@ -22,24 +29,25 @@ public class iterativa extends javax.swing.JFrame {
     //validar si ultimo caracter es un digito o no
     public boolean caracternumerico(String cadena) {
         boolean c = false;
-        if (cadena.length()!=0){
-        for (int i = 0; i < 10; i++) {
-            String i2 = Integer.toString(i);
-            if (cadena.substring(cadena.length() - 1).equals(i2)) {
-                return c = true;
+        if (cadena.length() != 0) {
+            for (int i = 0; i < 10; i++) {
+                String i2 = Integer.toString(i);
+                if (cadena.substring(cadena.length() - 1).equals(i2)) {
+                    return c = true;
+                }
             }
-        }}
+        }
         return c;
     }
-    //validar si hay parentesis
-   public boolean validacion2(String cadena) {
-    String ultimoCaracter = cadena.substring(cadena.length() - 1);
-    if (ultimoCaracter.equals("(") || ultimoCaracter.equals(")")) {
-        return true;
-    }
-    return false;
-}
 
+    //validar si hay parentesis
+    public boolean validacion2(String cadena) {
+        String ultimoCaracter = cadena.substring(cadena.length() - 1);
+        if (ultimoCaracter.equals("(") || ultimoCaracter.equals(")")) {
+            return true;
+        }
+        return false;
+    }
 
     //Funcion para validar que se borre el operador si el usuario desea otro
     public boolean validacion(String cadena) {
@@ -76,6 +84,7 @@ public class iterativa extends javax.swing.JFrame {
             aparecer(cadena);
             operaciones.setText("");
         }
+    
     }
 
     //validar multiplicar sen, cos, tan despues de e o pi
@@ -98,7 +107,7 @@ public class iterativa extends javax.swing.JFrame {
     //validar que se sobreescriba un operador sobre otro
     public void validar3(String cadena) {
         if (acum.length() != 0 && acum.substring(acum.length() - 1) != "i") {
-            if (acum.substring(acum.length() - 1).equals("i")||acum.substring(acum.length() - 1).equals("e")) {
+            if (acum.substring(acum.length() - 1).equals("i") || acum.substring(acum.length() - 1).equals("e")) {
 
             } else {
                 if (validacion2(acum) == false) {
@@ -112,7 +121,7 @@ public class iterativa extends javax.swing.JFrame {
         if (acum.length() == 0) {
             operaciones.setText("Opcion no valida");
         } else if (acum.substring(acum.length() - 1).equals("(")) {
-            operaciones.setText("Opcion no valida");
+       operaciones.setText("Opcion no valida");
         } else {
             aparecer(cadena);
             operaciones.setText("");
@@ -227,6 +236,7 @@ public class iterativa extends javax.swing.JFrame {
 
         return seno;
     }
+
     //coseno
     public static double coseno(double x) {
         double coseno = 0;
@@ -247,7 +257,7 @@ public class iterativa extends javax.swing.JFrame {
 
         while (hayCambios == true) {
             hayCambios = false;
-             if (expresion.contains("pi")) {//si hay un numero pi se evalua enseguida
+            if (expresion.contains("pi")) {//si hay un numero pi se evalua enseguida
                 double valorPi = Pi(10);
                 expresion = expresion.replace("pi", String.valueOf(valorPi));
                 hayCambios = true;
@@ -283,7 +293,6 @@ public class iterativa extends javax.swing.JFrame {
                 System.out.println("expresion: " + expresion);
             }
 
-           
             if (expresion.contains("sen(")) {
                 int signo = 1;
 
@@ -478,6 +487,21 @@ public class iterativa extends javax.swing.JFrame {
 
     public iterativa() {
         initComponents();
+        setIconImage(new ImageIcon(getClass().getResource("imagenes/liarobot.png")).getImage());
+        this.setTitle("CALCULADORA ITERATIVA");
+        try {
+            // Carga la fuente
+            InputStream fontStream = getClass().getResourceAsStream("Calculator.ttf");
+            Font customFont = Font.createFont(Font.TRUETYPE_FONT, fontStream);
+            Font customFont1 = customFont.deriveFont(Font.PLAIN, 60f); // Tamaño de la fuente
+            Font customFont2 = customFont.deriveFont(Font.PLAIN, 40f); // Tamaño de la fuente
+            res.setFont(customFont1);
+            operaciones.setFont(customFont2);
+            GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
+            ge.registerFont(customFont);
+        } catch (IOException | FontFormatException e) {
+            e.printStackTrace();
+        }
         this.setLocationRelativeTo(null);//centrar ventana
         acum = "";
         this.setResizable(false);
@@ -519,6 +543,8 @@ public class iterativa extends javax.swing.JFrame {
         jButton27 = new javax.swing.JButton();
         jButton28 = new javax.swing.JButton();
         jButton29 = new javax.swing.JButton();
+        jButton30 = new javax.swing.JButton();
+        jButton31 = new javax.swing.JButton();
         operaciones = new javax.swing.JLabel();
         parentesis = new javax.swing.JButton();
         res = new javax.swing.JLabel();
@@ -531,14 +557,19 @@ public class iterativa extends javax.swing.JFrame {
             }
         });
 
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
         jButton1.setContentAreaFilled(false);
+        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 70, 20));
 
         jButton2.setContentAreaFilled(false);
+        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 210, 100, 50));
 
         jButton3.setContentAreaFilled(false);
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -546,6 +577,7 @@ public class iterativa extends javax.swing.JFrame {
                 jButton3ActionPerformed(evt);
             }
         });
+        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 210, 100, 50));
 
         jButton4.setContentAreaFilled(false);
         jButton4.addActionListener(new java.awt.event.ActionListener() {
@@ -553,6 +585,7 @@ public class iterativa extends javax.swing.JFrame {
                 jButton4ActionPerformed(evt);
             }
         });
+        jPanel1.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(465, 213, 100, 50));
 
         jButton5.setContentAreaFilled(false);
         jButton5.addActionListener(new java.awt.event.ActionListener() {
@@ -560,6 +593,7 @@ public class iterativa extends javax.swing.JFrame {
                 jButton5ActionPerformed(evt);
             }
         });
+        jPanel1.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(565, 213, 100, 50));
 
         jButton6.setContentAreaFilled(false);
         jButton6.addActionListener(new java.awt.event.ActionListener() {
@@ -567,6 +601,7 @@ public class iterativa extends javax.swing.JFrame {
                 jButton6ActionPerformed(evt);
             }
         });
+        jPanel1.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 260, 90, 70));
 
         jButton7.setContentAreaFilled(false);
         jButton7.addActionListener(new java.awt.event.ActionListener() {
@@ -574,6 +609,7 @@ public class iterativa extends javax.swing.JFrame {
                 jButton7ActionPerformed(evt);
             }
         });
+        jPanel1.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 260, 100, 70));
 
         jButton8.setContentAreaFilled(false);
         jButton8.addActionListener(new java.awt.event.ActionListener() {
@@ -581,6 +617,7 @@ public class iterativa extends javax.swing.JFrame {
                 jButton8ActionPerformed(evt);
             }
         });
+        jPanel1.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 270, 100, 60));
 
         jButton9.setContentAreaFilled(false);
         jButton9.addActionListener(new java.awt.event.ActionListener() {
@@ -588,6 +625,7 @@ public class iterativa extends javax.swing.JFrame {
                 jButton9ActionPerformed(evt);
             }
         });
+        jPanel1.add(jButton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 260, 100, 70));
 
         jButton10.setContentAreaFilled(false);
         jButton10.addActionListener(new java.awt.event.ActionListener() {
@@ -595,6 +633,7 @@ public class iterativa extends javax.swing.JFrame {
                 jButton10ActionPerformed(evt);
             }
         });
+        jPanel1.add(jButton10, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 263, 90, 60));
 
         jButton11.setContentAreaFilled(false);
         jButton11.addActionListener(new java.awt.event.ActionListener() {
@@ -602,6 +641,7 @@ public class iterativa extends javax.swing.JFrame {
                 jButton11ActionPerformed(evt);
             }
         });
+        jPanel1.add(jButton11, new org.netbeans.lib.awtextra.AbsoluteConstraints(567, 266, 90, 60));
 
         jButton12.setContentAreaFilled(false);
         jButton12.addActionListener(new java.awt.event.ActionListener() {
@@ -609,6 +649,7 @@ public class iterativa extends javax.swing.JFrame {
                 jButton12ActionPerformed(evt);
             }
         });
+        jPanel1.add(jButton12, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 340, 90, 70));
 
         jButton13.setContentAreaFilled(false);
         jButton13.addActionListener(new java.awt.event.ActionListener() {
@@ -616,6 +657,7 @@ public class iterativa extends javax.swing.JFrame {
                 jButton13ActionPerformed(evt);
             }
         });
+        jPanel1.add(jButton13, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 340, 100, 70));
 
         jButton14.setContentAreaFilled(false);
         jButton14.addActionListener(new java.awt.event.ActionListener() {
@@ -623,6 +665,7 @@ public class iterativa extends javax.swing.JFrame {
                 jButton14ActionPerformed(evt);
             }
         });
+        jPanel1.add(jButton14, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 340, 100, 70));
 
         jButton15.setContentAreaFilled(false);
         jButton15.addActionListener(new java.awt.event.ActionListener() {
@@ -630,6 +673,7 @@ public class iterativa extends javax.swing.JFrame {
                 jButton15ActionPerformed(evt);
             }
         });
+        jPanel1.add(jButton15, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 340, 100, 70));
 
         jButton16.setContentAreaFilled(false);
         jButton16.addActionListener(new java.awt.event.ActionListener() {
@@ -637,6 +681,7 @@ public class iterativa extends javax.swing.JFrame {
                 jButton16ActionPerformed(evt);
             }
         });
+        jPanel1.add(jButton16, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 340, 90, 70));
 
         jButton17.setContentAreaFilled(false);
         jButton17.addActionListener(new java.awt.event.ActionListener() {
@@ -644,6 +689,7 @@ public class iterativa extends javax.swing.JFrame {
                 jButton17ActionPerformed(evt);
             }
         });
+        jPanel1.add(jButton17, new org.netbeans.lib.awtextra.AbsoluteConstraints(571, 333, 90, 80));
 
         jButton18.setContentAreaFilled(false);
         jButton18.addActionListener(new java.awt.event.ActionListener() {
@@ -651,6 +697,7 @@ public class iterativa extends javax.swing.JFrame {
                 jButton18ActionPerformed(evt);
             }
         });
+        jPanel1.add(jButton18, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 420, 90, 60));
 
         jButton19.setContentAreaFilled(false);
         jButton19.addActionListener(new java.awt.event.ActionListener() {
@@ -658,6 +705,7 @@ public class iterativa extends javax.swing.JFrame {
                 jButton19ActionPerformed(evt);
             }
         });
+        jPanel1.add(jButton19, new org.netbeans.lib.awtextra.AbsoluteConstraints(141, 420, 100, 60));
 
         jButton20.setContentAreaFilled(false);
         jButton20.addActionListener(new java.awt.event.ActionListener() {
@@ -665,6 +713,7 @@ public class iterativa extends javax.swing.JFrame {
                 jButton20ActionPerformed(evt);
             }
         });
+        jPanel1.add(jButton20, new org.netbeans.lib.awtextra.AbsoluteConstraints(251, 420, 100, 60));
 
         jButton21.setContentAreaFilled(false);
         jButton21.addActionListener(new java.awt.event.ActionListener() {
@@ -672,6 +721,7 @@ public class iterativa extends javax.swing.JFrame {
                 jButton21ActionPerformed(evt);
             }
         });
+        jPanel1.add(jButton21, new org.netbeans.lib.awtextra.AbsoluteConstraints(361, 423, 100, 60));
 
         jButton22.setContentAreaFilled(false);
         jButton22.addActionListener(new java.awt.event.ActionListener() {
@@ -679,6 +729,7 @@ public class iterativa extends javax.swing.JFrame {
                 jButton22ActionPerformed(evt);
             }
         });
+        jPanel1.add(jButton22, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 420, 90, 60));
 
         jButton23.setContentAreaFilled(false);
         jButton23.addActionListener(new java.awt.event.ActionListener() {
@@ -686,6 +737,7 @@ public class iterativa extends javax.swing.JFrame {
                 jButton23ActionPerformed(evt);
             }
         });
+        jPanel1.add(jButton23, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 420, 87, 70));
 
         jButton24.setContentAreaFilled(false);
         jButton24.addActionListener(new java.awt.event.ActionListener() {
@@ -693,6 +745,7 @@ public class iterativa extends javax.swing.JFrame {
                 jButton24ActionPerformed(evt);
             }
         });
+        jPanel1.add(jButton24, new org.netbeans.lib.awtextra.AbsoluteConstraints(565, 491, 100, 70));
 
         jButton25.setContentAreaFilled(false);
         jButton25.addActionListener(new java.awt.event.ActionListener() {
@@ -700,6 +753,7 @@ public class iterativa extends javax.swing.JFrame {
                 jButton25ActionPerformed(evt);
             }
         });
+        jPanel1.add(jButton25, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 493, 90, 70));
 
         jButton26.setContentAreaFilled(false);
         jButton26.addActionListener(new java.awt.event.ActionListener() {
@@ -707,6 +761,7 @@ public class iterativa extends javax.swing.JFrame {
                 jButton26ActionPerformed(evt);
             }
         });
+        jPanel1.add(jButton26, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 493, 100, 70));
 
         jButton27.setContentAreaFilled(false);
         jButton27.addActionListener(new java.awt.event.ActionListener() {
@@ -714,6 +769,7 @@ public class iterativa extends javax.swing.JFrame {
                 jButton27ActionPerformed(evt);
             }
         });
+        jPanel1.add(jButton27, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 490, 100, 70));
 
         jButton28.setContentAreaFilled(false);
         jButton28.addActionListener(new java.awt.event.ActionListener() {
@@ -721,6 +777,7 @@ public class iterativa extends javax.swing.JFrame {
                 jButton28ActionPerformed(evt);
             }
         });
+        jPanel1.add(jButton28, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 490, 100, 70));
 
         jButton29.setContentAreaFilled(false);
         jButton29.addActionListener(new java.awt.event.ActionListener() {
@@ -728,6 +785,24 @@ public class iterativa extends javax.swing.JFrame {
                 jButton29ActionPerformed(evt);
             }
         });
+        jPanel1.add(jButton29, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 490, 90, 70));
+
+        jButton30.setContentAreaFilled(false);
+        jButton30.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton30ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton30, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 210, 100, 40));
+
+        jButton31.setContentAreaFilled(false);
+        jButton31.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton31ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton31, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 216, 100, 40));
+        jPanel1.add(operaciones, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 30, 540, 60));
 
         parentesis.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/parentesis.png"))); // NOI18N
         parentesis.setContentAreaFilled(false);
@@ -736,195 +811,14 @@ public class iterativa extends javax.swing.JFrame {
                 parentesisActionPerformed(evt);
             }
         });
+        jPanel1.add(parentesis, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 130, 40, 50));
 
         res.setFont(new java.awt.Font("Segoe UI", 0, 32)); // NOI18N
         res.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        jPanel1.add(res, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, 670, 50));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/imagen calculadora.png"))); // NOI18N
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(50, 50, 50)
-                .addComponent(operaciones, javax.swing.GroupLayout.PREFERRED_SIZE, 540, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addComponent(res, javax.swing.GroupLayout.PREFERRED_SIZE, 670, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(250, 250, 250)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(150, 150, 150)
-                .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(130, 130, 130)
-                .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(117, 117, 117)
-                .addComponent(jButton11, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(150, 150, 150)
-                .addComponent(jButton13, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(10, 10, 10)
-                .addComponent(jButton14, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(120, 120, 120)
-                .addComponent(jButton16, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(361, 361, 361)
-                .addComponent(jButton21, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(9, 9, 9)
-                .addComponent(jButton22, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(150, 150, 150)
-                .addComponent(jButton28, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(10, 10, 10)
-                .addComponent(jButton27, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(215, 215, 215)
-                .addComponent(jButton24, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(470, 470, 470)
-                .addComponent(jButton25, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(40, 40, 40)
-                .addComponent(jButton29, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(251, 251, 251)
-                .addComponent(jButton20, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(200, 200, 200)
-                .addComponent(parentesis, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(565, 565, 565)
-                .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(360, 360, 360)
-                .addComponent(jButton15, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addComponent(jLabel1)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(40, 40, 40)
-                .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(470, 470, 470)
-                .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(465, 465, 465)
-                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(260, 260, 260)
-                .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(564, 564, 564)
-                .addComponent(jButton23, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(360, 360, 360)
-                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(141, 141, 141)
-                .addComponent(jButton19, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(40, 40, 40)
-                .addComponent(jButton12, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(40, 40, 40)
-                .addComponent(jButton18, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(571, 571, 571)
-                .addComponent(jButton17, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(360, 360, 360)
-                .addComponent(jButton26, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addComponent(operaciones, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(60, 60, 60)
-                .addComponent(res, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(50, 50, 50)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(20, 20, 20)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton11, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(10, 10, 10)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton13, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton14, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton16, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(10, 10, 10)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(3, 3, 3)
-                        .addComponent(jButton21, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jButton22, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(7, 7, 7)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton28, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton27, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(1, 1, 1)
-                        .addComponent(jButton24, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE))))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(493, 493, 493)
-                .addComponent(jButton25, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(490, 490, 490)
-                .addComponent(jButton29, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(420, 420, 420)
-                .addComponent(jButton20, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(200, 200, 200)
-                .addComponent(parentesis, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(213, 213, 213)
-                .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(340, 340, 340)
-                .addComponent(jButton15, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addComponent(jLabel1)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(270, 270, 270)
-                .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(273, 273, 273)
-                .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(213, 213, 213)
-                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(270, 270, 270)
-                .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(420, 420, 420)
-                .addComponent(jButton23, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(210, 210, 210)
-                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(420, 420, 420)
-                .addComponent(jButton19, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(340, 340, 340)
-                .addComponent(jButton12, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(420, 420, 420)
-                .addComponent(jButton18, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(343, 343, 343)
-                .addComponent(jButton17, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(493, 493, 493)
-                .addComponent(jButton26, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/botonescalc.jpg"))); // NOI18N
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -958,7 +852,7 @@ public class iterativa extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jButton15ActionPerformed
 
-    
+
     private void jButton26ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton26ActionPerformed
         if (acum.length() == 0) {
             if (acum == "" || caracternumerico(acum) == false && acum.substring(acum.length() - 1) != "i") {
@@ -1142,15 +1036,24 @@ public class iterativa extends javax.swing.JFrame {
     }//GEN-LAST:event_parentesisActionPerformed
 
     private void formMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseClicked
-       
+
     }//GEN-LAST:event_formMouseClicked
 
-    float opa=255, tam=0;
-boolean dib=false;
-float time=0, seg=40000;  
-    void puntero(){
+    private void jButton30ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton30ActionPerformed
+        
+    }//GEN-LAST:event_jButton30ActionPerformed
 
-  //PUNTERO
+    private void jButton31ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton31ActionPerformed
+        
+    }//GEN-LAST:event_jButton31ActionPerformed
+
+    float opa = 255, tam = 0;
+    boolean dib = false;
+    float time = 0, seg = 40000;
+
+    void puntero() {
+
+        //PUNTERO
 //  if (dib) {
 //    if (opa>0) {
 //      fill(255, 208, 131, opa); //Circulo 1
@@ -1173,6 +1076,7 @@ float time=0, seg=40000;
 //    }
 //    }
     }
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -1230,6 +1134,8 @@ float time=0, seg=40000;
     private javax.swing.JButton jButton28;
     private javax.swing.JButton jButton29;
     private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton30;
+    private javax.swing.JButton jButton31;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;

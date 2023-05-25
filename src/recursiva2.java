@@ -1,4 +1,10 @@
 
+import java.awt.Font;
+import java.awt.FontFormatException;
+import java.awt.GraphicsEnvironment;
+import java.io.IOException;
+import java.io.InputStream;
+import javax.swing.ImageIcon;
 import javax.swing.SwingConstants;
 
 public class recursiva2 extends javax.swing.JFrame {
@@ -14,6 +20,7 @@ public class recursiva2 extends javax.swing.JFrame {
 
     //Subrutina para que aparezca el numero en el label de resultado
     public void aparecer(String caracter) {
+        
         res.setHorizontalAlignment(SwingConstants.RIGHT);
         acum = acum + caracter;
         res.setText(acum);
@@ -481,12 +488,28 @@ public class recursiva2 extends javax.swing.JFrame {
 
     public recursiva2() {
         initComponents();
+         setIconImage(new ImageIcon(getClass().getResource("imagenes/liarobot.png")).getImage());
         this.setLocationRelativeTo(null);//centrar ventana
         this.setResizable(false);
+        this.setTitle("CALCULADORA RECURSIVA");
         acum = "";
 
         parentesis.setVisible(false);
         error = 0;
+        
+         try {
+            // Carga la fuente
+            InputStream fontStream = getClass().getResourceAsStream("Calculator.ttf");
+            Font customFont = Font.createFont(Font.TRUETYPE_FONT, fontStream);
+           Font customFont1 = customFont.deriveFont(Font.PLAIN, 60f); // Tamaño de la fuente
+            Font customFont2 = customFont.deriveFont(Font.PLAIN, 40f); // Tamaño de la fuente
+            res.setFont(customFont1);
+            operaciones.setFont(customFont2);
+            GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
+            ge.registerFont(customFont);
+        } catch (IOException | FontFormatException e) {
+            e.printStackTrace();
+        }
     }
 
     @SuppressWarnings("unchecked")
@@ -530,14 +553,23 @@ public class recursiva2 extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
         jButton1.setContentAreaFilled(false);
+        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, 20));
+
 
         CombBTN.setContentAreaFilled(false);
+
+        jButton2.setContentAreaFilled(false);
+        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 212, 100, 45));
+
 
         SenBTN.setContentAreaFilled(false);
         SenBTN.addActionListener(new java.awt.event.ActionListener() {
@@ -545,6 +577,7 @@ public class recursiva2 extends javax.swing.JFrame {
                 SenBTNActionPerformed(evt);
             }
         });
+        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 210, 100, 50));
 
         CosBTN.setContentAreaFilled(false);
         CosBTN.addActionListener(new java.awt.event.ActionListener() {
@@ -552,6 +585,7 @@ public class recursiva2 extends javax.swing.JFrame {
                 CosBTNActionPerformed(evt);
             }
         });
+        jPanel1.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(465, 213, 97, 50));
 
         TanBTN.setContentAreaFilled(false);
         TanBTN.addActionListener(new java.awt.event.ActionListener() {
@@ -559,6 +593,7 @@ public class recursiva2 extends javax.swing.JFrame {
                 TanBTNActionPerformed(evt);
             }
         });
+        jPanel1.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(565, 208, 96, 55));
 
         ACBTN.setContentAreaFilled(false);
         ACBTN.addActionListener(new java.awt.event.ActionListener() {
@@ -566,6 +601,7 @@ public class recursiva2 extends javax.swing.JFrame {
                 ACBTNActionPerformed(evt);
             }
         });
+        jPanel1.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(37, 262, 96, 68));
 
         SumaBTN.setContentAreaFilled(false);
         SumaBTN.addActionListener(new java.awt.event.ActionListener() {
@@ -573,6 +609,7 @@ public class recursiva2 extends javax.swing.JFrame {
                 SumaBTNActionPerformed(evt);
             }
         });
+        jPanel1.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 264, 100, 66));
 
         RestaBTN.setContentAreaFilled(false);
         RestaBTN.addActionListener(new java.awt.event.ActionListener() {
@@ -580,6 +617,7 @@ public class recursiva2 extends javax.swing.JFrame {
                 RestaBTNActionPerformed(evt);
             }
         });
+        jPanel1.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(247, 264, 104, 66));
 
         BTN9.setContentAreaFilled(false);
         BTN9.addActionListener(new java.awt.event.ActionListener() {
@@ -587,6 +625,7 @@ public class recursiva2 extends javax.swing.JFrame {
                 BTN9ActionPerformed(evt);
             }
         });
+        jPanel1.add(jButton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(358, 264, 103, 66));
 
         BTN8.setContentAreaFilled(false);
         BTN8.addActionListener(new java.awt.event.ActionListener() {
@@ -594,6 +633,7 @@ public class recursiva2 extends javax.swing.JFrame {
                 BTN8ActionPerformed(evt);
             }
         });
+        jPanel1.add(jButton10, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 261, 92, 70));
 
         BTN7.setContentAreaFilled(false);
         BTN7.addActionListener(new java.awt.event.ActionListener() {
@@ -601,6 +641,7 @@ public class recursiva2 extends javax.swing.JFrame {
                 BTN7ActionPerformed(evt);
             }
         });
+        jPanel1.add(jButton11, new org.netbeans.lib.awtextra.AbsoluteConstraints(567, 264, 93, 62));
 
         BorraUnaBTN.setContentAreaFilled(false);
         BorraUnaBTN.addActionListener(new java.awt.event.ActionListener() {
@@ -608,6 +649,7 @@ public class recursiva2 extends javax.swing.JFrame {
                 BorraUnaBTNActionPerformed(evt);
             }
         });
+        jPanel1.add(jButton12, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 335, 90, 78));
 
         MultipBTN.setContentAreaFilled(false);
         MultipBTN.addActionListener(new java.awt.event.ActionListener() {
@@ -615,6 +657,7 @@ public class recursiva2 extends javax.swing.JFrame {
                 MultipBTNActionPerformed(evt);
             }
         });
+        jPanel1.add(jButton13, new org.netbeans.lib.awtextra.AbsoluteConstraints(139, 340, 101, 70));
 
         DivisionBTN.setContentAreaFilled(false);
         DivisionBTN.addActionListener(new java.awt.event.ActionListener() {
@@ -622,6 +665,7 @@ public class recursiva2 extends javax.swing.JFrame {
                 DivisionBTNActionPerformed(evt);
             }
         });
+        jPanel1.add(jButton14, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 340, 100, 70));
 
         BTN6.setContentAreaFilled(false);
         BTN6.addActionListener(new java.awt.event.ActionListener() {
@@ -629,6 +673,7 @@ public class recursiva2 extends javax.swing.JFrame {
                 BTN6ActionPerformed(evt);
             }
         });
+        jPanel1.add(jButton15, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 340, 100, 70));
 
         BTN5.setContentAreaFilled(false);
         BTN5.addActionListener(new java.awt.event.ActionListener() {
@@ -636,6 +681,7 @@ public class recursiva2 extends javax.swing.JFrame {
                 BTN5ActionPerformed(evt);
             }
         });
+        jPanel1.add(jButton16, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 340, 90, 70));
 
         BTN4.setContentAreaFilled(false);
         BTN4.addActionListener(new java.awt.event.ActionListener() {
@@ -643,6 +689,7 @@ public class recursiva2 extends javax.swing.JFrame {
                 BTN4ActionPerformed(evt);
             }
         });
+        jPanel1.add(jButton17, new org.netbeans.lib.awtextra.AbsoluteConstraints(571, 336, 89, 76));
 
         PiBTN.setContentAreaFilled(false);
         PiBTN.addActionListener(new java.awt.event.ActionListener() {
@@ -650,6 +697,7 @@ public class recursiva2 extends javax.swing.JFrame {
                 PiBTNActionPerformed(evt);
             }
         });
+        jPanel1.add(jButton18, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 420, 90, 70));
 
         divBTN.setContentAreaFilled(false);
         divBTN.addActionListener(new java.awt.event.ActionListener() {
@@ -657,6 +705,7 @@ public class recursiva2 extends javax.swing.JFrame {
                 divBTNActionPerformed(evt);
             }
         });
+        jPanel1.add(jButton19, new org.netbeans.lib.awtextra.AbsoluteConstraints(141, 420, 100, 70));
 
         ModBTN.setContentAreaFilled(false);
         ModBTN.addActionListener(new java.awt.event.ActionListener() {
@@ -664,6 +713,7 @@ public class recursiva2 extends javax.swing.JFrame {
                 ModBTNActionPerformed(evt);
             }
         });
+        jPanel1.add(jButton20, new org.netbeans.lib.awtextra.AbsoluteConstraints(251, 420, 100, 60));
 
         BTN3.setContentAreaFilled(false);
         BTN3.addActionListener(new java.awt.event.ActionListener() {
@@ -671,6 +721,7 @@ public class recursiva2 extends javax.swing.JFrame {
                 BTN3ActionPerformed(evt);
             }
         });
+        jPanel1.add(jButton21, new org.netbeans.lib.awtextra.AbsoluteConstraints(361, 423, 100, 60));
 
         BTN2.setContentAreaFilled(false);
         BTN2.addActionListener(new java.awt.event.ActionListener() {
@@ -678,6 +729,7 @@ public class recursiva2 extends javax.swing.JFrame {
                 BTN2ActionPerformed(evt);
             }
         });
+        jPanel1.add(jButton22, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 420, 90, 60));
 
         BTN1.setContentAreaFilled(false);
         BTN1.addActionListener(new java.awt.event.ActionListener() {
@@ -685,6 +737,7 @@ public class recursiva2 extends javax.swing.JFrame {
                 BTN1ActionPerformed(evt);
             }
         });
+        jPanel1.add(jButton23, new org.netbeans.lib.awtextra.AbsoluteConstraints(564, 418, 98, 70));
 
         igualBTN.setContentAreaFilled(false);
         igualBTN.addActionListener(new java.awt.event.ActionListener() {
@@ -692,6 +745,7 @@ public class recursiva2 extends javax.swing.JFrame {
                 igualBTNActionPerformed(evt);
             }
         });
+        jPanel1.add(jButton24, new org.netbeans.lib.awtextra.AbsoluteConstraints(565, 491, 96, 73));
 
         BTN0.setContentAreaFilled(false);
         BTN0.addActionListener(new java.awt.event.ActionListener() {
@@ -699,6 +753,7 @@ public class recursiva2 extends javax.swing.JFrame {
                 BTN0ActionPerformed(evt);
             }
         });
+        jPanel1.add(jButton25, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 493, 90, 70));
 
         PuntoBTN.setContentAreaFilled(false);
         PuntoBTN.addActionListener(new java.awt.event.ActionListener() {
@@ -706,6 +761,7 @@ public class recursiva2 extends javax.swing.JFrame {
                 PuntoBTNActionPerformed(evt);
             }
         });
+        jPanel1.add(jButton26, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 493, 100, 70));
 
         FactorialBTN.setContentAreaFilled(false);
         FactorialBTN.addActionListener(new java.awt.event.ActionListener() {
@@ -713,6 +769,7 @@ public class recursiva2 extends javax.swing.JFrame {
                 FactorialBTNActionPerformed(evt);
             }
         });
+        jPanel1.add(jButton27, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 490, 100, 70));
 
         PotenciaBTN.setContentAreaFilled(false);
         PotenciaBTN.addActionListener(new java.awt.event.ActionListener() {
@@ -720,6 +777,7 @@ public class recursiva2 extends javax.swing.JFrame {
                 PotenciaBTNActionPerformed(evt);
             }
         });
+        jPanel1.add(jButton28, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 490, 100, 70));
 
         EulerBTN.setContentAreaFilled(false);
         EulerBTN.addActionListener(new java.awt.event.ActionListener() {
@@ -727,6 +785,8 @@ public class recursiva2 extends javax.swing.JFrame {
                 EulerBTNActionPerformed(evt);
             }
         });
+        jPanel1.add(jButton29, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 490, 90, 70));
+        jPanel1.add(operaciones, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 30, 540, 50));
 
         parentesis.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/parentesis.png"))); // NOI18N
         parentesis.setContentAreaFilled(false);
@@ -735,9 +795,11 @@ public class recursiva2 extends javax.swing.JFrame {
                 parentesisActionPerformed(evt);
             }
         });
+        jPanel1.add(parentesis, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 200, 40, 50));
 
         res.setFont(new java.awt.Font("Segoe UI", 0, 32)); // NOI18N
         res.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        jPanel1.add(res, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, 670, 50));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/recursiva.png"))); // NOI18N
 
@@ -924,6 +986,10 @@ public class recursiva2 extends javax.swing.JFrame {
                 .addGap(493, 493, 493)
                 .addComponent(PuntoBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/botonescalc.jpg"))); // NOI18N
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

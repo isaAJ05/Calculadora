@@ -1,8 +1,33 @@
 
-public class PRINCIPAL2 extends javax.swing.JFrame {
+import java.awt.Font;
+import java.awt.FontFormatException;
+import java.awt.GraphicsEnvironment;
+import java.io.IOException;
+import java.io.InputStream;
+import javax.swing.ImageIcon;
 
+
+public class PRINCIPAL2 extends javax.swing.JFrame {
+  ClassLoader CL = getClass().getClassLoader();
+    ImageIcon robot1 = new ImageIcon(CL.getResource("imagenes/robot1.png"));
+    ImageIcon robot2 = new ImageIcon(CL.getResource("imagenes/robot2.png"));
+    ImageIcon robot3 = new ImageIcon(CL.getResource("imagenes/robot3.png"));
     public PRINCIPAL2() {
         initComponents();
+
+      try {
+            // Carga la fuente
+            InputStream fontStream = getClass().getResourceAsStream("Calculator.ttf");
+            Font customFont = Font.createFont(Font.TRUETYPE_FONT, fontStream);
+            customFont = customFont.deriveFont(Font.PLAIN, 40f); // Tamaño de la fuente
+            jLabel2.setFont(customFont);
+            GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
+            ge.registerFont(customFont);
+        } catch (IOException | FontFormatException e) {
+            e.printStackTrace();
+        }
+        setIconImage(new ImageIcon(getClass().getResource("imagenes/liarobot.png")).getImage());
+        this.setTitle("CALCULADORA");
         this.setLocationRelativeTo(null);//centrar ventana
         this.setResizable(false);
     }
@@ -12,6 +37,11 @@ public class PRINCIPAL2 extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
+        jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
@@ -22,9 +52,65 @@ public class PRINCIPAL2 extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(75, 111, 148));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/principal.png"))); // NOI18N
+        jPanel1.setBackground(new java.awt.Color(52, 63, 95));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jButton2.setContentAreaFilled(false);
+        jButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jButton2MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jButton2MouseExited(evt);
+            }
+        });
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 270, 200, 90));
+
+        jButton3.setContentAreaFilled(false);
+        jButton3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jButton3MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jButton3MouseExited(evt);
+            }
+        });
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 270, 200, 90));
+
+
+        jLabel4.setBackground(new java.awt.Color(52, 63, 95));
+        jLabel4.setFont(new java.awt.Font("Footlight MT Light", 0, 18)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(204, 204, 255));
+        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel4.setText("Escoja con qué calculadora desea operar:");
+        jLabel4.setOpaque(true);
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 210, 310, 40));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/robot1.png"))); // NOI18N
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 320, 320, 270));
+
+        jLabel2.setBackground(new java.awt.Color(52, 63, 95));
+        jLabel2.setForeground(new java.awt.Color(204, 204, 255));
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setText("NIP CREATIONS");
+        jLabel2.setOpaque(true);
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 160, 310, 40));
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/menucalc.png"))); // NOI18N
         jLabel3.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 730, 590));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, 630, 340));
 
         jButton2.setContentAreaFilled(false);
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -44,6 +130,9 @@ public class PRINCIPAL2 extends javax.swing.JFrame {
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 730, 430));
 
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 700, 600));
+
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -58,6 +147,23 @@ public class PRINCIPAL2 extends javax.swing.JFrame {
         this.dispose();
         r.setVisible(true);
     }//GEN-LAST:event_jButton3ActionPerformed
+
+
+    private void jButton2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseEntered
+       jLabel1.setIcon(robot2);
+    }//GEN-LAST:event_jButton2MouseEntered
+
+    private void jButton2MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseExited
+         jLabel1.setIcon(robot1);
+    }//GEN-LAST:event_jButton2MouseExited
+
+    private void jButton3MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseExited
+         jLabel1.setIcon(robot1);
+    }//GEN-LAST:event_jButton3MouseExited
+
+    private void jButton3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseEntered
+        jLabel1.setIcon(robot3);
+    }//GEN-LAST:event_jButton3MouseEntered
 
     // hjgjhgjy
     public static void main(String args[]) {
@@ -95,7 +201,10 @@ public class PRINCIPAL2 extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }
